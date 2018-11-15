@@ -1,0 +1,14 @@
+{
+  "data": {
+    "type": "reviews",
+    "id": 1
+  },
+  "attributes": {
+    "user_id": 4,
+    "trail_id": 20,
+    "body": "Holy smokes.  What an awesome time we had looking at the things and walking up the thing.  I brought a burrito but I dropped it which was a little unfortunate.  But like, once I got most the sand out of it, I was happy.  The sunset was opulent and the vibes were second to none.",
+    "activity": "Hiking",
+    "rating": 4,
+    "date": "2018-01-11"
+  }
+}
