@@ -13,9 +13,14 @@ const getReviews = (cb) => {
   })
 }
 
-const insertReview = (params) => {
-  let str = `INSERT INTO reviews (reviews_id, user_id, trail_id, description, date)`
-  console.log(params)
+const insertReview = (params, cb) => {
+  let str = `INSERT INTO reviews (user_id, trail_id, description) VALUES (?, ?, ?)`
+
+
+  con.query(str, params, (err, results) => {
+    if (err) throw err
+    cb(results)
+  })
 
 }
 

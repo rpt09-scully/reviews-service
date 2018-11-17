@@ -14,5 +14,7 @@ module.exports.quotes = [
   "Sickest Time I ever had in my life, I wanna burst",
   "I lost my watch but it really didn't bother me none",
   "I proposed but she laughed in my face.  It's cool though, there was a bar nearby",
-  "PM me and I'll give you the sickest mixtape ever to run here with.  Do they even say mixtape anymore?  Doesn't matter.  You'll love it, I swear"
+  "PM me and I'll give you the sickest mixtape ever to run here with.  Do they even say mixtape anymore?  Doesn't matter.  You'll love it, I swear",
+  "I feel like I am on top of the world when I am here...even though I am at sea level....but who is really keeping track of the elevation, except me. I guess I'm the only one.  I need to get out more.  Ping me if anyone wants to hang out, I'm pretty much always avaialable.",
+  "Reminds me of that place in Barcelona.  The place with all the sunshine."
 ];
