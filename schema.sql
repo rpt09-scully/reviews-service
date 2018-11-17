@@ -4,7 +4,7 @@ CREATE DATABASE revservice;
 
 USE revservice;
 
-CREATE TABLE review (
+CREATE TABLE reviews (
   review_id int NOT NULL AUTO_INCREMENT,
   user_id int NOT NULL,
   trail_id int NOT NULL,
@@ -13,4 +13,4 @@ CREATE TABLE review (
   PRIMARY KEY (review_id)
 ) ENGINE=InnoDB;
 
-INSERT INTO review (review_id, user_id, trail_id, description, date) VALUES (null, 1, 1, 'Hey this thing is awesome', '2018-08-01')
+INSERT INTO reviews (review_id, user_id, trail_id, description, date) VALUES (null, 1, 1, 'Hey this thing is awesome', '2018-08-01')

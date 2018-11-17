@@ -10,5 +10,9 @@ module.exports.quotes = [
   "I remember hiking here 40 years ago ... only tiny dirt trails. How time changes. Beautiful nevertheless",
   "One of my favorite trails in the city and a major reason why I love living here. The views are stunning. Well worth the effort.",
   "Easy loop, great view, best to go on a weekday though if you can.",
-  "We got to hike the trail at sunset and got some amazing pictures. The view was worth every step!"
+  "We got to hike the trail at sunset and got some amazing pictures. The view was worth every step!",
+  "Sickest Time I ever had in my life, I wanna burst",
+  "I lost my watch but it really didn't bother me none",
+  "I proposed but she laughed in my face.  It's cool though, there was a bar nearby",
+  "PM me and I'll give you the sickest mixtape ever to run here with.  Do they even say mixtape anymore?  Doesn't matter.  You'll love it, I swear"
 ];
