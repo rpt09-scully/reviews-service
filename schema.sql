@@ -4,8 +4,6 @@ CREATE DATABASE revservice;
 
 USE revservice;
 
-
-
 CREATE TABLE activities (
   activity_id int NOT NULL AUTO_INCREMENT,
   body varchar(100),
@@ -215,4 +213,6 @@ INSERT INTO reviews (user_id, trail_id, description, date, act_Id) VALUES (43, 2
 INSERT INTO reviews (user_id, trail_id, description, date, act_Id) VALUES (16, 20, "Easy loop, great view, best to go on a weekday though if you can.", "2/12/2017", 4);
 INSERT INTO reviews (user_id, trail_id, description, date, act_Id) VALUES (14, 20, "I lost my watch but it really didn\'t bother me none", "7/13/2018", 7);
 INSERT INTO reviews (user_id, trail_id, description, date, act_Id) VALUES (24, 20, "I feel like I am on top of the world when I am here...even though I am at sea level....but who is really keeping track of the elevation, except me. I guess I\'m the only one.  I need to get out more.  Ping me if anyone wants to hang out, I\'m pretty much always avaialable.", "5/4/2018", 8);
+
+
 

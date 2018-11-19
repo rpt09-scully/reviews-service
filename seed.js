@@ -1,6 +1,6 @@
 const data = require('./quotes').quotes;
 const db = require('./database')
-
+//THIS FILE GENERATES RANDOM REVIEWS WHICH WERE THEN STORED IN schema.sql
 const dateGen = () => {
   let dateStr = ''
   const years = [2018, 2017, 2016]
@@ -11,7 +11,6 @@ const dateGen = () => {
 
   return dateStr += day + '/' + month + '/' + year
 }
-
 const seedDB = (data) => {
   let str = ''
   let trailId = 0;
@@ -29,15 +28,11 @@ const seedDB = (data) => {
   }
   return str
 }
-
-
 seedDB(data)
 
 module.exports = {
   seedDB
 }
-// data[Math.floor(Math.random() * data.length)])
-// db.insertReview([userId, trailId, review,], (results) => {
-//   console.log(results)
-// })
+
+
 
