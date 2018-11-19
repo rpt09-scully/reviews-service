@@ -1,6 +1,6 @@
 const data = require('./quotes').quotes;
 const db = require('./database')
-//THIS FILE GENERATES RANDOM REVIEWS WHICH WERE THEN STORED IN schema.sql
+//THIS FILE GENERATES REVIEWS WHICH WERE THEN STORED IN schema.sql
 const dateGen = () => {
   let dateStr = ''
   const years = [2018, 2017, 2016]
