@@ -35,7 +35,7 @@ $> npm install
 # setup .env file (for sql creds)
 $> touch .env
 # seed database `revService` (change credentials as needed)
-$> mysql -uroot < schema.sql
+$> npm run seed-db
 ```
 
 Inside `.env` place your SQL credentials (change if needed)
