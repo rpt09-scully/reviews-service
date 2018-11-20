@@ -8,7 +8,7 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "start": "nodemon server/index.js",
+    "server-dev": "nodemon server/index.js",
     "seed-db": "mysql -u root -p < schema.sql"
   },
   "dependencies": {
