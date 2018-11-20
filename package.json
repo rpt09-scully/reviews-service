@@ -9,7 +9,7 @@
   },
   "scripts": {
     "server-dev": "nodemon server/index.js",
-    "seed-db": "mysql -u root -p < schema.sql"
+    "seed-db": "mysql -uroot -p < schema.sql"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
