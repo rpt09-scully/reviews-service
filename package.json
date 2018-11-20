@@ -17,6 +17,7 @@
     "mysql": "^2.16.0"
   },
   "devDependencies": {
+    "dotenv": "^6.1.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "nodemon": "^1.18.6"
   }
