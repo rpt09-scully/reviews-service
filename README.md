@@ -1,14 +1,14 @@
-# Project Name
+# Reviews Service
 
-> Project description
+> Reviews service for 9 Trails
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-
+  - paths: https://github.com/rpt09-scully/paths-service
+  - profiles: https://github.com/rpt09-scully/profile-service
+  - photos:  https://github.com/rpt09-scully/trail-photos-service
+  - trails: https://github.com/rpt09-scully/trail-service
+  - reviews [Current]
 ## Table of Contents
 
 1. [Usage](#Usage)
@@ -17,23 +17,37 @@
 
 ## Usage
 
-> Some usage instructions
+> we'll get back to you on this;-)
 
 ## Requirements
 
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-- etc
+> hmmmm...
 
 ## Development
 
-### Installing Dependencies
-
-From within the root directory:
+To set up:
 
 ```sh
-npm install -g webpack
-npm install
+# cd into directory
+$> cd reviews-service
+# install dependencies
+$> npm install
+# setup .env file (for sql creds)
+$> touch .env
+# seed database `revService` (change credentials as needed)
+$> npm run seed-db
+```
+
+Inside `.env` place your SQL credentials (change if needed)
+```
+DB_HOST=localhost
+DB_USER=root
+DB_PASS=
+```
+
+To execute:
+
+```sh
+$> npm run server-dev
 ```
 

@@ -1,17 +1,24 @@
 {
-  "name": "",
-  "version": "",
-  "description": "",
-  "author": "",
-  "license": "",
+  "name": "ninetrails-reviews-service",
+  "version": "0.1.0",
+  "description": "Reviews service for the Team Scully 9Trails project",
+  "author": "Ryan Brennan",
+  "license": "ISC",
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {
+    "server-dev": "nodemon server/index.js",
+    "seed-db": "mysql -uroot -p < schema.sql"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mysql": "^2.16.0"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "dotenv": "^6.1.0",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "nodemon": "^1.18.6"
   }
 }
