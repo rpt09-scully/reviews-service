@@ -13,8 +13,34 @@ const getAll = (cb) => {
 };
 //
 
+const getRanking = (cb) => {
+  let str = `select * from reviews inner join activities where reviews.act_id = activities.activity_id`;
+  let obj = {};
+
+
+  con.query(str, (err, reviews) => {
+
+    if (err) throw err;
+    reviews.forEach((review) => {
+
+      if (!obj[review.trail_id]) {
+        obj[review.trail_id] = review.rating
+      } else {
+        obj[review.trail_id] += review.rating
+      }
+    })
+
+    cb(obj)
+  });
+
+}
+
+
+
+
 module.exports = {
-  getAll
+  getAll,
+  getRanking
 };
 
 
