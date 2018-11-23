@@ -30,7 +30,12 @@ router.get('/:trailId/trailRank', (req, res) => {
 //@example http:localhost:3004/144/reviewInfo
 //@desc   retrieves json review info by reviewId
 router.get('/:reviewId/reviewInfo', (req, res) => {
-  console.log(req.params.reviewId)
+  let id = req.params.reviewId
+
+  db.getReview(id, (review) => {
+    console.log(review)
+
+  })
 })
 
 

@@ -31,7 +31,24 @@ const getRanking = cb => {
   });
 };
 
+const getReview = (id, cb) => {
+  let str = `select * from reviews where review_id = ${id}`
+
+  con.query(str, (err, review) => {
+    if (err) throw err;
+    let actId = review[0].act_id
+    let str1 = `select * from activities where activity_id = ${actId}`
+
+    con.query(str1, (err, act) => {
+      if (err) throw err;
+     let activity = act[0].body
+
+    })
+  })
+}
+
 module.exports = {
   getAll,
-  getRanking
+  getRanking,
+  getReview
 };
