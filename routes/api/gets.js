@@ -31,12 +31,24 @@ router.get('/:trailId/trailRank', (req, res) => {
 //@desc   retrieves json review info by reviewId
 router.get('/:reviewId/reviewInfo', (req, res) => {
   let id = req.params.reviewId
+  let obj = {};
+  obj.data = {}
+  obj.data.type = 'reviews'
+  obj.data.id = null;
+  obj.data.attributes = {};
 
-  db.getReview(id, (review) => {
-    console.log(review)
-
+  db.getReview(id, (review, activity) => {
+    obj.data.id = review.review_id;
+    obj.data.attributes.user_id = review.user_id;
+    obj.data.attributes.trail_id = review.trail_id;
+    obj.data.attributes.body = review.description;
+    obj.data.attributes.activity = activity;
+    obj.data.attributes.rating = review.rating;
+    obj.data.attributes.data = review.date;
+    res.send(obj)
   })
 })
+
 
 
 

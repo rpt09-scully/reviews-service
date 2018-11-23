@@ -42,7 +42,7 @@ const getReview = (id, cb) => {
     con.query(str1, (err, act) => {
       if (err) throw err;
      let activity = act[0].body
-
+      cb(review[0], activity)
     })
   })
 }
