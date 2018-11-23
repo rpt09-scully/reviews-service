@@ -45,7 +45,7 @@ router.get('/:reviewId/reviewInfo', (req, res) => {
     obj.data.attributes.activity = activity;
     obj.data.attributes.rating = review.rating;
     obj.data.attributes.data = review.date;
-    res.send(obj)
+    res.json(obj)
   })
 })
 
