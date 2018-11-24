@@ -37,19 +37,24 @@ router.get('/:reviewId/reviewInfo', (req, res) => {
   obj.data.id = null;
   obj.data.attributes = {};
 
-  db.getReview(id, (review, activity) => {
+  db.getReview(id, (review) => {
     obj.data.id = review.review_id;
     obj.data.attributes.user_id = review.user_id;
     obj.data.attributes.trail_id = review.trail_id;
     obj.data.attributes.body = review.description;
-    obj.data.attributes.activity = activity;
+    obj.data.attributes.activity = review.body;
     obj.data.attributes.rating = review.rating;
     obj.data.attributes.data = review.date;
     res.json(obj)
   })
 })
 
-
+//@route  GET '/:trailId/newestReviews'
+//@example http:localhost:3004/144/newestReviews
+//@desc   retrieves reviews for trail sorted by most recent
+router.get('/:trailId/newestReviews', (req, res) => {
+  let id = req.params.trailId
+})
 
 
 
