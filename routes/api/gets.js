@@ -45,7 +45,7 @@ router.get('/:reviewId/reviewInfo', (req, res) => {
     obj.data.attributes.activity = review.body;
     obj.data.attributes.rating = review.rating;
     obj.data.attributes.data = review.date;
-    res.json(obj)
+    res.status(200).json(obj)
   })
 })
 
@@ -53,10 +53,24 @@ router.get('/:reviewId/reviewInfo', (req, res) => {
 //@example http:localhost:3004/144/newestReviews
 //@desc   retrieves reviews for trail sorted by most recent
 router.get('/:trailId/newestReviews', (req, res) => {
-  let id = req.params.trailId
+  let trailId = req.params.trailId
+
+  db.dateSort(trailId, 'DESC', (sortedReviews) => {
+    res.status(200).json(sortedReviews)
+  })
 })
 
+//@route  GET '/:trailId/oldestReviews'
+//@example http:localhost:3004/144/oldsetReviews
+//@desc   retrieves reviews for trail sorted by oldest
+router.get('/:trailId/newestReviews', (req, res) => {
+  let trailId = req.params.trailId
 
-
+  db.dateSort(trailId, 'DESC', (sortedReviews) => {
+    res.status(200).json(sortedReviews)
+  })
+})
 
 module.exports = router;
+
+

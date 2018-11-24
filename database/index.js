@@ -5,7 +5,7 @@ const con = mysql.createConnection(config);
 
 //Gets all reviews
 const getAll = cb => {
-  let str = `select * from reviews inner join activities where reviews.act_id = activities.activity_id`;
+  let str = `SELECT * FROM reviews INNER JOIN activities WHERE reviews.act_id = activities.activity_id`;
 
   con.query(str, (err, results) => {
     if (err) throw err;
@@ -14,7 +14,7 @@ const getAll = cb => {
 };
 //
 const getRanking = cb => {
-  let str = `select * from reviews inner join activities where reviews.act_id = activities.activity_id`;
+  let str = `SELECT * FROM reviews INNER JOIN activities WHERE reviews.act_id = activities.activity_id`;
   let obj = {};
 
   con.query(str, (err, reviews) => {
@@ -31,9 +31,9 @@ const getRanking = cb => {
   });
 };
 
-const getReview = (id, cb) => {
-  let str = `select reviews.user_id, reviews.trail_id, reviews.description, reviews.rating, reviews.date, activities.body \
-  FROM reviews left join activities on activities.activity_id = reviews.act_id where reviews.review_id = ${id}`
+const getReview = (reviewId, cb) => {
+  let str = `SELECT reviews.user_id, reviews.trail_id, reviews.description, reviews.rating, reviews.date, activities.body \
+  FROM reviews left join activities on activities.activity_id = reviews.act_id WHERE reviews.review_id = ${reviewId}`
 
   con.query(str, (err, review) => {
     if (err) throw err
@@ -41,23 +41,22 @@ const getReview = (id, cb) => {
   })
 }
 
+const dateSort = (trailId, sortBy, cb) => {
+  let str = `SELECT reviews.user_id, reviews.trail_id, reviews.description, reviews.rating, reviews.date, activities.body \
+  FROM reviews LEFT JOIN activities on activities.activity_id = reviews.act_id where reviews.trail_id = ${trailId} \
+  ORDER BY str_to_date(date, '%m/%d/%Y') ${sortBy}`
+
+  con.query(str, (err, review) => {
+    if (err) throw err;
+    cb(review)
+  })
+}
 
 
-
-
-
-// const dateSort = (id, cb) => {
-//   let str = `select * from reviews where review_id = ${id}`
-
-//   cons.query(str, (err, review) => {})
-// }
-
-// //  select * from reviews order by str_to_date(date, '%m/%d/%Y');
-
-`select reviews.user_id, reviews.description, activities.body FROM reviews left join activities on activities.activity_id = reviews.act_id where reviews.user_id = 2;`
 
 module.exports = {
   getAll,
   getRanking,
-  getReview
+  getReview,
+  dateSort
 };
