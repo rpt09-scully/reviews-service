@@ -36,7 +36,7 @@ const getReview = (reviewId, cb) => {
   FROM reviews left join activities on activities.activity_id = reviews.act_id WHERE reviews.review_id = ${reviewId}`
 
   con.query(str, (err, review) => {
-    if (err) throw err
+    if (err) throw err;
     cb(review[0])
   })
 }
@@ -46,9 +46,20 @@ const dateSort = (trailId, sortBy, cb) => {
   FROM reviews LEFT JOIN activities on activities.activity_id = reviews.act_id where reviews.trail_id = ${trailId} \
   ORDER BY str_to_date(date, '%m/%d/%Y') ${sortBy}`
 
-  con.query(str, (err, review) => {
+  con.query(str, (err, reviews) => {
     if (err) throw err;
-    cb(review)
+    cb(reviews)
+  })
+}
+
+const ratedSort = (trailId, sortBy, cb) => {
+  let str = `SELECT reviews.user_id, reviews.trail_id, reviews.description, reviews.rating, reviews.date, activities.body \
+  FROM reviews LEFT JOIN activities on activities.activity_id = reviews.act_id where reviews.trail_id = ${trailId} \
+  ORDER by rating ${sortBy}`
+
+  con.query(str, (err, reviews) => {
+    if (err) throw err;
+    cb(reviews)
   })
 }
 
@@ -58,5 +69,6 @@ module.exports = {
   getAll,
   getRanking,
   getReview,
-  dateSort
+  dateSort,
+  ratedSort
 };

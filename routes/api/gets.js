@@ -50,9 +50,9 @@ router.get('/:reviewId/reviewInfo', (req, res) => {
 })
 
 //@route  GET '/:trailId/newestReviews'
-//@example http:localhost:3004/144/newestReviews
+//@example http:localhost:3004/7/newReviews
 //@desc   retrieves reviews for trail sorted by most recent
-router.get('/:trailId/reviewsDesc', (req, res) => {
+router.get('/:trailId/reviewsNew', (req, res) => {
   let trailId = req.params.trailId
 
   db.dateSort(trailId, 'DESC', (sortedReviews) => {
@@ -60,16 +60,40 @@ router.get('/:trailId/reviewsDesc', (req, res) => {
   })
 })
 
-//@route  GET '/:trailId/oldestReviews'
-//@example http:localhost:3004/144/oldsetReviews
+//@route  GET '/:trailId/oldReviews'
+//@example http:localhost:3004/7/oldest Reviews
 //@desc   retrieves reviews for trail sorted by oldest
-router.get('/:trailId/reviewsAsc', (req, res) => {
+router.get('/:trailId/reviewsOld', (req, res) => {
   let trailId = req.params.trailId
 
   db.dateSort(trailId, 'ASC', (sortedReviews) => {
     res.status(200).json(sortedReviews)
   })
 })
+
+
+//@route  GET '/:trailId/topReviews'
+//@example http:localhost:3004/14/topReviews
+//@desc   retrieves reviews sorted by highest ratings
+router.get('/:trailId/topReviews', (req, res) => {
+  let trailId = req.params.trailId
+
+  db.ratedSort(trailId, 'DESC', (sortedReviews) => {
+    res.status(200).json(sortedReviews)
+  })
+})
+
+//@route  GET '/:trailId/bottomReviews'
+//@example http:localhost:3004/14/newestReviews
+//@desc   retrieves reviews for sorted by lowest rating
+router.get('/:trailId/bottomReviews', (req, res) => {
+  let trailId = req.params.trailId
+
+  db.dateSort(trailId, 'ASC', (sortedReviews) => {
+    res.status(200).json(sortedReviews)
+  })
+})
+
 
 module.exports = router;
 
