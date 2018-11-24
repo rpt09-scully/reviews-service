@@ -36,7 +36,7 @@ $> npm install
 $> touch .env
 # seed database `revService` (change credentials as needed)
 $> npm run seed-db
-```
+```git s
 
 Inside `.env` place your SQL credentials (change if needed)
 ```
