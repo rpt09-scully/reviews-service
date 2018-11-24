@@ -74,7 +74,7 @@ router.get('/:trailId/reviewsOld', (req, res) => {
 
 //@route  GET '/:trailId/topReviews'
 //@example http:localhost:3004/14/topReviews
-//@desc   retrieves reviews sorted by highest ratings
+//@desc   retrieves reviews for trail sorted by highest ratings
 router.get('/:trailId/topReviews', (req, res) => {
   let trailId = req.params.trailId
 
@@ -85,7 +85,7 @@ router.get('/:trailId/topReviews', (req, res) => {
 
 //@route  GET '/:trailId/bottomReviews'
 //@example http:localhost:3004/14/newestReviews
-//@desc   retrieves reviews for sorted by lowest rating
+//@desc   retrieves reviews for trail sorted by lowest rating
 router.get('/:trailId/bottomReviews', (req, res) => {
   let trailId = req.params.trailId
 
