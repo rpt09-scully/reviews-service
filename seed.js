@@ -19,11 +19,12 @@ const seedDB = (data) => {
     for (var j = 0; j < (Math.random() * (20 - 3) + 3); j ++) {
 
       let date = dateGen();
+      let rating = (Math.floor(Math.random() * (6 - 1) + 1));
       let userId = (Math.floor(Math.random() * (100 - 1) + 1));
       let review = data[Math.floor(Math.random() * data.length)];
       let actId = (Math.floor(Math.random() * (16 - 1) + 1));
 
-      str += `INSERT INTO reviews (user_id, trail_id, description, date, actId) VALUES (${userId}, ${trailId}, "${review}", "${date}", ${actId});\n`
+      str += `INSERT INTO reviews (user_id, trail_id, rating, description, date, actId) VALUES (${userId}, ${trailId}, ${rating}, "${review}", "${date}", ${actId});\n`
     }
   }
   return str
