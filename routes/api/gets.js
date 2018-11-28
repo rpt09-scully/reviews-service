@@ -31,32 +31,26 @@ router.get('/:trailId/trailRank', (req, res) => {
 //@desc   retrieves json review info by reviewId
 router.get('/:reviewId/reviewInfo', (req, res) => {
   let id = req.params.reviewId
-  let obj = {};
-  obj.data = {}
-  obj.data.type = 'reviews'
-  obj.data.id = null;
-  obj.data.attributes = {};
 
   db.getReview(id, (review) => {
-    obj.data.id = review.review_id;
-    obj.data.attributes.user_id = review.user_id;
-    obj.data.attributes.trail_id = review.trail_id;
-    obj.data.attributes.body = review.description;
-    obj.data.attributes.activity = review.body;
-    obj.data.attributes.rating = review.rating;
-    obj.data.attributes.data = review.date;
+    let obj = db.jsonFormat(id, review)
     res.status(200).json(obj)
   })
 })
 
-//@route  GET '/:trailId/newestReviews'
-//@example http:localhost:3004/7/newReviews
+//@route  GET '/:trailId/reviewsNew'
+//@example http:localhost:3004/7/reviewsNew
 //@desc   retrieves reviews for trail sorted by most recent
 router.get('/:trailId/reviewsNew', (req, res) => {
-  let trailId = req.params.trailId
+  let trailId = req.params.trailId;
+  let arr = [];
 
   db.dateSort(trailId, 'DESC', (sortedReviews) => {
-    res.status(200).json(sortedReviews)
+
+    sortedReviews.forEach((review) => {
+      arr.push(db.jsonFormat(review.review_id, review))
+    })
+    res.status(200).json(arr)
   })
 })
 
@@ -64,10 +58,14 @@ router.get('/:trailId/reviewsNew', (req, res) => {
 //@example http:localhost:3004/7/oldest Reviews
 //@desc   retrieves reviews for trail sorted by oldest
 router.get('/:trailId/reviewsOld', (req, res) => {
-  let trailId = req.params.trailId
+  let trailId = req.params.trailId;
+  let arr = [];
 
   db.dateSort(trailId, 'ASC', (sortedReviews) => {
-    res.status(200).json(sortedReviews)
+    sortedReviews.forEach((review) => {
+      arr.push(db.jsonFormat(review.review_id, review))
+    })
+    res.status(200).json(arr)
   })
 })
 
@@ -76,10 +74,14 @@ router.get('/:trailId/reviewsOld', (req, res) => {
 //@example http:localhost:3004/14/topReviews
 //@desc   retrieves reviews for trail sorted by highest ratings
 router.get('/:trailId/topReviews', (req, res) => {
-  let trailId = req.params.trailId
+  let trailId = req.params.trailId;
+  let arr = []
 
   db.ratedSort(trailId, 'DESC', (sortedReviews) => {
-    res.status(200).json(sortedReviews)
+    sortedReviews.forEach((review) => {
+      arr.push(db.jsonFormat(review.review_id, review))
+    })
+    res.status(200).json(arr)
   })
 })
 
@@ -87,10 +89,14 @@ router.get('/:trailId/topReviews', (req, res) => {
 //@example http:localhost:3004/14/newestReviews
 //@desc   retrieves reviews for trail sorted by lowest rating
 router.get('/:trailId/bottomReviews', (req, res) => {
-  let trailId = req.params.trailId
+  let trailId = req.params.trailId;
+  let arr = [];
 
   db.dateSort(trailId, 'ASC', (sortedReviews) => {
-    res.status(200).json(sortedReviews)
+    sortedReviews.forEach((review) => {
+      arr.push(db.jsonFormat(review.review_id, review))
+    })
+    res.status(200).json(arr)
   })
 })
 
