@@ -3,8 +3,9 @@ const config = require('./config_example.js');
 
 const con = mysql.createConnection(config);
 
-const getAll = (cb) => {
-  let str = `select * from reviews inner join activities where reviews.act_id = activities.activity_id`;
+//Gets all reviews
+const getAll = cb => {
+  let str = `SELECT * FROM reviews INNER JOIN activities WHERE reviews.act_id = activities.activity_id`;
 
   con.query(str, (err, results) => {
     if (err) throw err;
@@ -12,12 +13,62 @@ const getAll = (cb) => {
   });
 };
 //
+const getRanking = cb => {
+  let str = `SELECT * FROM reviews INNER JOIN activities WHERE reviews.act_id = activities.activity_id`;
+  let obj = {};
 
-module.exports = {
-  getAll
+  con.query(str, (err, reviews) => {
+    if (err) throw err;
+    reviews.forEach(review => {
+      if (!obj[review.trail_id]) {
+        obj[review.trail_id] = review.rating;
+      } else {
+        obj[review.trail_id] += review.rating;
+      }
+    });
+
+    cb(obj);
+  });
 };
 
+const getReview = (reviewId, cb) => {
+  let str = `SELECT reviews.user_id, reviews.trail_id, reviews.description, reviews.rating, reviews.date, activities.body \
+  FROM reviews left join activities on activities.activity_id = reviews.act_id WHERE reviews.review_id = ${reviewId}`
+
+  con.query(str, (err, review) => {
+    if (err) throw err;
+    cb(review[0])
+  })
+}
+
+const dateSort = (trailId, sortBy, cb) => {
+  let str = `SELECT reviews.user_id, reviews.trail_id, reviews.description, reviews.rating, reviews.date, activities.body \
+  FROM reviews LEFT JOIN activities on activities.activity_id = reviews.act_id where reviews.trail_id = ${trailId} \
+  ORDER BY str_to_date(date, '%m/%d/%Y') ${sortBy}`
+
+  con.query(str, (err, reviews) => {
+    if (err) throw err;
+    cb(reviews)
+  })
+}
+
+const ratedSort = (trailId, sortBy, cb) => {
+  let str = `SELECT reviews.user_id, reviews.trail_id, reviews.description, reviews.rating, reviews.date, activities.body \
+  FROM reviews LEFT JOIN activities on activities.activity_id = reviews.act_id where reviews.trail_id = ${trailId} \
+  ORDER by rating ${sortBy}`
+
+  con.query(str, (err, reviews) => {
+    if (err) throw err;
+    cb(reviews)
+  })
+}
 
 
 
-
+module.exports = {
+  getAll,
+  getRanking,
+  getReview,
+  dateSort,
+  ratedSort
+};

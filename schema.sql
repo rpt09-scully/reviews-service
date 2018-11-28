@@ -197,3 +197,4 @@ INSERT INTO reviews (user_id, trail_id, rating, description, date, act_id) VALUE
 INSERT INTO reviews (user_id, trail_id, rating, description, date, act_id) VALUES (64, 20, 3, "Sickest Time I ever had in my life, I wanna burst", "7/28/2017", 8);
 INSERT INTO reviews (user_id, trail_id, rating, description, date, act_id) VALUES (2, 20, 2, "Nice walk in the woods.", "11/18/2018", 2);
 INSERT INTO reviews (user_id, trail_id, rating, description, date, act_id) VALUES (47, 20, 5, "One of my favorite trails in the city and a major reason why I love living here. The views are stunning. Well worth the effort.", "8/5/2016", 11);
+
