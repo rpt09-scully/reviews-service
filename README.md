@@ -51,3 +51,9 @@ To execute:
 $> npm run server-dev
 ```
 
+To execute current tests:
+
+```sh
+$> npm run test-server
+```
+

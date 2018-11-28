@@ -4,8 +4,12 @@ const db = require('../../database');
 
 
 router.get('/reviews', (req, res) => {
+  let arr = [];
   db.getAll((reviews) => {
-    res.status(200).json(reviews)
+    reviews.forEach((review) => {
+      arr.push(db.jsonFormat(review.review_id, review))
+    })
+    res.status(200).json(arr)
   })
 })
 

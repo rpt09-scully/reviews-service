@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 const config = require('./config_example.js');
-
 const con = mysql.createConnection(config);
+
 
 //Gets all reviews
 const getAll = cb => {
@@ -88,5 +88,5 @@ module.exports = {
   getReview,
   dateSort,
   ratedSort,
-  jsonFormat
+  jsonFormat,
 };
