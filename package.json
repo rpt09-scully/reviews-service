@@ -12,10 +12,10 @@
     "seed-db": "mysql -uroot -p < schema.sql",
     "test-server": "mocha server/specs/server-spec.js"
   },
-
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "mocha": "^5.2.0",
     "mysql": "^2.16.0"
   },
   "devDependencies": {

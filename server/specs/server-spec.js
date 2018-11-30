@@ -8,13 +8,8 @@ describe('Reviews Integration Tests', () => {
   let dbConnection;
 
   beforeEach((done) => {
-    //TRY REPLACING THIS WITH:
-    // dbConnection = mysql.createConnection(config)
-    dbConnection = mysql.createConnection({
-      user: 'root',
-      password: '',
-      database: 'revService'
-    });
+
+    dbConnection = mysql.createConnection(config);
     dbConnection.connect();
     var tablename = 'reviews';
 
