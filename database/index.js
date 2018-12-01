@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 const config = require('./config_example.js');
-
 const con = mysql.createConnection(config);
+
 
 //Gets all reviews
 const getAll = cb => {
@@ -65,7 +65,7 @@ const ratedSort = (trailId, sortBy, cb) => {
 const jsonFormat = (id, review) => {
   console.log(review)
   let obj = {};
-  obj.data = {}
+  obj.data = {};
   obj.data.type = 'reviews'
   obj.data.id = null;
   obj.data.attributes = {};
@@ -88,5 +88,5 @@ module.exports = {
   getReview,
   dateSort,
   ratedSort,
-  jsonFormat
+  jsonFormat,
 };

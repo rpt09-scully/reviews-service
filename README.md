@@ -51,3 +51,10 @@ To execute:
 $> npm run server-dev
 ```
 
+To execute current tests:
+
+```sh
+Fill out credentials on lines 15 & 16 in server/specs/server-spec.js
+$> npm run test-server
+```
+
