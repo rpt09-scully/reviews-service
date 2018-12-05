@@ -9,6 +9,7 @@
   },
   "scripts": {
     "server-dev": "nodemon server/index.js",
+    "react-dev": "webpack -d --watch",
     "seed-db": "mysql -uroot -p < schema.sql",
     "test-server": "mocha server/specs/server-spec.js"
   },
@@ -17,11 +18,14 @@
     "express": "^4.16.4",
     "mocha": "^5.2.0",
     "mysql": "^2.16.0",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
     "request": "^2.88.0"
   },
   "devDependencies": {
     "@babel/core": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
+    "@babel/preset-react": "^7.0.0",
     "babel-cli": "^6.26.0",
     "babel-loader": "^8.0.4",
     "babel-preset-react": "^6.24.1",
