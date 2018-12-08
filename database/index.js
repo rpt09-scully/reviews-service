@@ -63,7 +63,7 @@ const ratedSort = (trailId, sortBy, cb) => {
   })
 }
 const jsonFormat = (id, review) => {
-  console.log(review)
+
   let obj = {};
   obj.data = {};
   obj.data.type = 'reviews'
