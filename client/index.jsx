@@ -4,35 +4,33 @@ import $ from 'jquery';
 import ReviewList from './ReviewList.jsx';
 
 class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       id: 4,
       reviews: [],
       profiles: []
-    }
+    };
   }
 
-  componentDidMount(){
-
+  componentDidMount() {
     fetch(`/${this.state.id}/reviewsNew`)
-    .then((response) => {
-      return response.json();
-    }).then((reviews) => {
-      this.setState({
-        reviews: reviews
+      .then(response => {
+        return response.json();
       })
-    })
-
+      .then(reviews => {
+        this.setState({
+          reviews: reviews
+        });
+      });
   }
   render() {
     return (
       <div>
-        <ReviewList reviews={this.state.reviews}/>
-    </div>
-    )
+        <ReviewList reviews={this.state.reviews} />
+      </div>
+    );
   }
 }
-
 
 ReactDOM.render(<App />, document.getElementById('app'));

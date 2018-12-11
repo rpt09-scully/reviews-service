@@ -9,21 +9,22 @@ class Review extends React.Component {
       trainame: '',
       url: ''
     };
-
   }
 
   componentDidMount() {
-    fetch(`http://localhost:3002/user/${this.props.info.data.attributes.user_id}`)
+    fetch(
+      `http://localhost:3002/user/${this.props.info.data.attributes.user_id}`
+    )
       .then(res => {
         return res.json();
       })
       .then(profile => {
-
-
         this.setState({
-          username: profile.data.attributes.first_name + ' ' + profile.data.attributes.last_name,
+          username:
+            profile.data.attributes.first_name +
+            ' ' +
+            profile.data.attributes.last_name,
           url: profile.data.attributes.photo_url
-
         });
       });
   }
@@ -77,9 +78,7 @@ class Review extends React.Component {
                     <p>8 days ago</p>
                   </div>
                   <div className="review_from_user boxs">
-                    <p>
-                    {this.props.info.data.attributes.body}
-                    </p>
+                    <p>{this.props.info.data.attributes.body}</p>
                   </div>
                 </div>
               </div>
@@ -92,4 +91,4 @@ class Review extends React.Component {
   }
 }
 
-export default Review
+export default Review;
