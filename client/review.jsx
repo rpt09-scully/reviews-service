@@ -9,19 +9,21 @@ class Review extends React.Component {
       trainame: '',
       url: ''
     };
+
   }
 
   componentDidMount() {
-
     fetch(`http://localhost:3002/user/${this.props.info.data.attributes.user_id}`)
       .then(res => {
         return res.json();
       })
       .then(profile => {
-        console.log(profile)
+
+
         this.setState({
           username: profile.data.attributes.first_name + ' ' + profile.data.attributes.last_name,
           url: profile.data.attributes.photo_url
+
         });
       });
   }
