@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import Reviews from './review.jsx';
+import ReviewList from './ReviewList.jsx';
 
 class App extends React.Component {
   constructor(props){
@@ -14,6 +14,7 @@ class App extends React.Component {
   }
 
   componentDidMount(){
+
     fetch(`/${this.state.id}/reviewsNew`)
     .then((response) => {
       return response.json();
@@ -27,7 +28,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Reviews reviews={this.state.reviews}/>
+        <ReviewList reviews={this.state.reviews}/>
     </div>
     )
   }

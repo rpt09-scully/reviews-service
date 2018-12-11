@@ -1,27 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-
-
-class Review extends React.component {
+class Review extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       username: '',
       trainame: ''
-    }
+    };
   }
 
   componentDidMount() {
-    fetch(`http://localhost:3002/user/${this.state.username}`)
-    .then((res) => {
-      return res.json();
-    }).then((profiles) => {
-      this.setState({
-        profile: profile
+
+    fetch(`http://localhost:3002/user/${this.props.info.data.attributes.user_id}`)
+      .then(res => {
+        return res.json();
       })
-    })
+      .then(profile => {
+        console.log(profile.data.attributes.first_name)
+        this.setState({
+          username: profile.data.attributes.first_name + ' ' + profile.data.attributes.last_name
+        });
+      });
   }
 
   render() {
@@ -33,7 +33,11 @@ class Review extends React.component {
         <link rel="icon" href="favicon.ico" type="image/ico" sizes="16x16" />
         <title>Review </title>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="css/font-awesome.min.css"
+        />
         <link href="css/css.css" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link rel="stylesheet" type="text/css" href="css/media.css" />
@@ -53,7 +57,7 @@ class Review extends React.component {
                 <div className="review_box_main_inner1_right boxs">
                   <div className="review_rating boxs">
                     <h4>
-                      <a href="#">Jason Gerke</a>
+                      <a href="#">{this.state.username}</a>
                       on
                       <a href="#"> Crissy Field and the Palace of Fine Arts </a>
                     </h4>
@@ -69,7 +73,14 @@ class Review extends React.component {
                     <p>8 days ago</p>
                   </div>
                   <div className="review_from_user boxs">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
+                    <p>
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it to make a
+                      type specimen book. It has survived not only five
+                      centuries,
+                    </p>
                   </div>
                 </div>
               </div>
@@ -78,24 +89,8 @@ class Review extends React.component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-
-
-
-
-const Reviews = (props) => {
-  return (
-  <div>
-    hellooo
-    {props.reviews.map((item) => {
-
-    })}
-  </div>
-  )
-}
-
-
-export default Reviews
+export default Review
