@@ -6,7 +6,8 @@ class Review extends React.Component {
     super(props);
     this.state = {
       username: '',
-      trainame: ''
+      trainame: '',
+      url: ''
     };
   }
 
@@ -17,9 +18,10 @@ class Review extends React.Component {
         return res.json();
       })
       .then(profile => {
-        console.log(profile.data.attributes.first_name)
+        console.log(profile)
         this.setState({
-          username: profile.data.attributes.first_name + ' ' + profile.data.attributes.last_name
+          username: profile.data.attributes.first_name + ' ' + profile.data.attributes.last_name,
+          url: profile.data.attributes.photo_url
         });
       });
   }
@@ -49,7 +51,7 @@ class Review extends React.Component {
                 <div className="review_box_main_inner1_left boxs">
                   <div className="img_boxreview">
                     <a href="#">
-                      <img src="images/review_img1.jpg" alt="review_img1" />
+                      <img src={this.state.url} alt="review_img1" />
                     </a>
                   </div>
                   <span className="position_img_badge" />
@@ -74,12 +76,7 @@ class Review extends React.Component {
                   </div>
                   <div className="review_from_user boxs">
                     <p>
-                      Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry. Lorem Ipsum has been the industry's
-                      standard dummy text ever since the 1500s, when an unknown
-                      printer took a galley of type and scrambled it to make a
-                      type specimen book. It has survived not only five
-                      centuries,
+                    {this.props.info.data.attributes.body}
                     </p>
                   </div>
                 </div>
