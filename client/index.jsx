@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Review from './review.jsx'
+import $ from 'jquery';
+import Reviews from './review.jsx';
 
 class App extends React.Component {
   constructor(props){
@@ -16,15 +17,17 @@ class App extends React.Component {
     fetch(`/${this.state.id}/reviewsNew`)
     .then((response) => {
       return response.json();
-    }).then((data) => {
-      fetch(`http://localhost/3002/user/${this.state.id}`)
-
+    }).then((reviews) => {
+      this.setState({
+        reviews: reviews
+      })
     })
+
   }
-  render(){
+  render() {
     return (
       <div>
-        <Review />
+        <Reviews reviews={this.state.reviews}/>
     </div>
     )
   }

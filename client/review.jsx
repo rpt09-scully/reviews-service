@@ -1,9 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const Review = (props) => {
-  return (
-    <div>
+
+
+class Review extends React.component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      username: '',
+      trainame: ''
+    }
+  }
+
+  componentDidMount() {
+    fetch(`http://localhost:3002/user/${this.state.username}`)
+    .then((res) => {
+      return res.json();
+    }).then((profiles) => {
+      this.setState({
+        profile: profile
+      })
+    })
+  }
+
+  render() {
+    return (
+      <div>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -55,8 +78,24 @@ const Review = (props) => {
           </div>
         </div>
       </div>
+    )
+  }
+}
+
+
+
+
+
+const Reviews = (props) => {
+  return (
+  <div>
+    hellooo
+    {props.reviews.map((item) => {
+
+    })}
+  </div>
   )
 }
 
 
-export default Review
+export default Reviews
