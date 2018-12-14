@@ -3,8 +3,7 @@ var SRC_DIR = path.join(__dirname, '/client');
 var DIST_DIR = path.join(__dirname, '/public');
 
 module.exports = {
-  entry: `${SRC_DIR}/index.jsx`,
-  target: 'node',
+  entry: `./client/components/app.js`,
   output: {
     filename: 'bundle.js',
     path: DIST_DIR
@@ -18,7 +17,24 @@ module.exports = {
         query: {
           presets: ['@babel/preset-react', '@babel/preset-env']
         }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '[name]__[local]___[hash:base64:5]'
+            }
+          }
+        ]
       }
     ]
   }
 };
+
+

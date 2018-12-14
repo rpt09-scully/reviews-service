@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+// import styles from '/Users/ryanbrennan/Desktop/FEC/reviews-service/client/css/style.css'
 
 class Review extends React.Component {
   constructor(props) {
@@ -32,10 +33,6 @@ class Review extends React.Component {
   render() {
     return (
       <div>
-        <meta charSet="utf-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="favicon.ico" type="image/ico" sizes="16x16" />
         <title>Review </title>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
         <link
@@ -63,7 +60,7 @@ class Review extends React.Component {
                   <div className="review_rating boxs">
                     <h4>
                       <a href="#">{this.state.username}</a>
-                      on
+                       on
                       <a href="#"> Crissy Field and the Palace of Fine Arts </a>
                     </h4>
                     <span>
