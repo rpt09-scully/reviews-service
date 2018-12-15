@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import ReviewList from './ReviewList.jsx';
 
-class App extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,7 +14,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`/${this.state.id}/reviewsNew`)
+    fetch(`http://localhost:3004/${this.state.id}/reviewsNew`)
       .then(response => {
         return response.json();
       })
@@ -32,5 +32,8 @@ class App extends React.Component {
     );
   }
 }
+
+// module.exports = App;
+
 
 // ReactDOM.render(<App />, document.getElementById('app'));

@@ -1,11 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>9-Trails</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="UTF-8">
+  <title>Nine Trails Review Service</title>
 </head>
+
 <body>
-  <div id="app"></div>
-  <script type="text/javascript" src="bundle.js"></script>
+  <div id="9Trails.ReviewService.ReviewModule"></div>
+
+  <script>
+    window.NT = {};
+  </script>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="http://localhost:3004/app.js"></script>
+
+  <script>
+    ReactDOM.render(
+      React.createElement(window.NT.ReviewService.ReviewModule), document.getElementById(
+        '9Trails.ReviewService.ReviewModule')
+    );
+  </script>
 </body>
+
 </html>

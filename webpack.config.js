@@ -3,9 +3,9 @@ var SRC_DIR = path.join(__dirname, '/client');
 var DIST_DIR = path.join(__dirname, '/public');
 
 module.exports = {
-  entry: `./client/components/app.js`,
+  entry: `./client/index.js`,
   output: {
-    filename: 'bundle.js',
+    filename: 'app.js',
     path: DIST_DIR
   },
   module: {

@@ -1,6 +1,8 @@
-import ReviewList from './client/components/ReviewList.jsx';
+import ReviewModule from './components/App';
 
 window.NT = window.NT || {};
-window.NT.ReviewService = window.NT.TrailService || {};
-window.NT.ReviewService.ReviewList = ReviewList;
+window.NT.ReviewService = window.NT.ReviewService || {};
+window.NT.ReviewService.ReviewModule = ReviewModule;
+
+
 
