@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import styles from '/Users/ryanbrennan/Desktop/FEC/reviews-service/client/css/style.css'
+import styles from './client/css/style.css'
 
 class Review extends React.Component {
   constructor(props) {

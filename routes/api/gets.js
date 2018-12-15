@@ -21,7 +21,6 @@ router.get('/:trailId/trailRank', (req, res) => {
   let id = req.params.trailId
 
   db.getRanking((results) => {
-    console.log(results)
     for (key in results) {
       if (results[key] > results[id]) {
         count ++;
