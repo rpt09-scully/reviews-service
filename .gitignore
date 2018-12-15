@@ -1,6 +1,6 @@
 .env
 .DS_Store
-
+app.js
 ## NPM ##
 npm
 npm-debug.log
