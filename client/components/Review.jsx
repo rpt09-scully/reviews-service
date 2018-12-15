@@ -9,6 +9,7 @@ class Review extends React.Component {
       username: '',
       url: ''
     };
+    console.log(this.props.trailname)
   }
 
   componentDidMount() {
@@ -60,7 +61,7 @@ class Review extends React.Component {
                     <h4>
                       <a href="#">{this.state.username}</a>
                        on
-                      <a href="#"> Crissy Field and the Palace of Fine Arts </a>
+                      <a href="#">{this.props.trailname}</a>
                     </h4>
                     <span>
                       <i className="fa fa-star" aria-hidden="true" />

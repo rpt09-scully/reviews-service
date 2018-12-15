@@ -7,7 +7,7 @@ const ReviewList = (props) => {
   return (
     <div>
     {props.reviews.map((reviewInfo, i) => {
-      return <Review key={i} info={reviewInfo}/>
+      return <Review key={i} info={reviewInfo} trailname={props.trailname}/>
     })}
   </div>
   )
