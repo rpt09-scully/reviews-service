@@ -9,7 +9,7 @@ export default class App extends React.Component {
     this.state = {
       id: 1,
       reviews: [],
-      profiles: []
+      trailname:''
     };
   }
 
@@ -23,11 +23,21 @@ export default class App extends React.Component {
           reviews: reviews
         });
       });
+      //call to TrailService for trailname
+      fetch(`http://localhost:3001/${this.state.id}/trailinfo`)
+      .then(response => {
+        return response.json();
+      })
+      .then((trailInfo) => {
+        this.setState({
+          trailname: trailInfo.data.attributes.trail_name
+        })
+      })
   }
   render() {
     return (
       <div>
-        <ReviewList reviews={this.state.reviews} />
+        <ReviewList reviews={this.state.reviews} trailname={this.state.trailname}/>
       </div>
     );
   }
