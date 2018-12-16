@@ -28,8 +28,6 @@ router.get('/:trailId/trailStats', (req, res) => {
   })
 })
 
-
-
 //@route  GET /:trailId/trailRank
 //@example http:localhost:3004/6/trailRank
 //@desc   retrieves ranking of trail by trailId
@@ -118,5 +116,7 @@ router.get('/:trailId/bottomReviews', (req, res) => {
     res.status(200).json(arr);
   });
 });
+
+
 
 module.exports = router;
