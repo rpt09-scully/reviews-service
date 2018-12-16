@@ -31,6 +31,25 @@ const getRanking = cb => {
   });
 };
 
+const getStats = (trailId, cb) => {
+  let str =  `SELECT count(*) from reviews WHERE trail_id = ${trailId}`
+  let str2 = `SELECT avg(rating) from reviews where trail_id = ${trailId}`;
+
+  con.query(str, (err, total) => {
+    con.query(str2, (err, avg) => {
+      if (err) throw err;
+      let avg1 =  avg[0]
+      let total1 = total[0]
+
+      let avg2 = Math.ceil(avg1[Object.keys(avg1)[0]])
+      let total2 = Math.ceil(total1[Object.keys(total1)[0]])
+      cb([avg2, total2])
+    })
+  })
+}
+
+
+
 const getReview = (reviewId, cb) => {
   let str = `SELECT reviews.review_id, reviews.user_id, reviews.trail_id, reviews.description, reviews.rating, reviews.date, activities.body \
   FROM reviews left join activities on activities.activity_id = reviews.act_id WHERE reviews.review_id = ${reviewId}`
@@ -89,4 +108,5 @@ module.exports = {
   dateSort,
   ratedSort,
   jsonFormat,
+  getStats
 };
