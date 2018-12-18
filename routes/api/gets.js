@@ -3,6 +3,7 @@ const router = express.Router();
 const db = require('../../database');
 
 router.get('/reviews', (req, res) => {
+  console.log('Hellooo router!')
   let arr = [];
   db.getAll(reviews => {
     reviews.forEach(review => {
