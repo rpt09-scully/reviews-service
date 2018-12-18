@@ -12,7 +12,7 @@
     "react-dev": "webpack -d --watch",
     "seed-db": "mysql -uroot -p < schema.sql",
     "test-server": "mocha server/specs/server-spec.js",
-    "aws": "webpack --config webpack.config.js && node server/index.js"
+    "aws": "webpack -d && node server/index.js"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
