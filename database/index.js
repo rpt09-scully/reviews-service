@@ -2,10 +2,10 @@ const mysql = require('mysql');
 const config = require('./config_example.js');
 const con = mysql.createConnection(config);
 
-// con.connect((err) => {
-//   if (err) throw err
-//   console.log('Database Connected!!')
-// })
+con.connect((err) => {
+  if (err) throw err
+  console.log('Database Connected!!')
+})
 
 //Gets all reviews
 const getAll = cb => {
