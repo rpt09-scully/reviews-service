@@ -7,14 +7,22 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: 1,
       reviews: [],
       trailname:''
     };
   }
 
   componentDidMount() {
-    fetch(`http://localhost:3004/${this.state.id}/reviewsNew`)
+    const determineId = () => {
+      if (window.location.pathname.length > 1) {
+        return parseInt(window.location.pathname.substring(1));
+      } else {
+        return 1;
+      }
+    }
+    const id = determineId();
+    console.log(id)
+    fetch(`http://localhost:3004/${id}/reviewsNew`)
       .then(response => {
         return response.json();
       })
@@ -24,7 +32,7 @@ export default class App extends React.Component {
         });
       });
       //call to TrailService for trailname
-      fetch(`http://localhost:3001/${this.state.id}/trailinfo`)
+      fetch(`http://localhost:3001/${id}/trailinfo`)
       .then(response => {
         return response.json();
       })
