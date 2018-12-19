@@ -20,9 +20,8 @@ export default class App extends React.Component {
         return 1;
       }
     }
-    const id = determineId();
-    console.log(id)
-    fetch(`http://localhost:3004/${id}/reviewsNew`)
+    const trailId = determineId();
+    fetch(`http://localhost:3004/${trailId}/reviewsNew`)
       .then(response => {
         return response.json();
       })
@@ -32,7 +31,7 @@ export default class App extends React.Component {
         });
       });
       //call to TrailService for trailname
-      fetch(`http://localhost:3001/${id}/trailinfo`)
+      fetch(`http://localhost:3001/${trailId}/trailinfo`)
       .then(response => {
         return response.json();
       })
