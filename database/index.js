@@ -10,7 +10,8 @@ con.connect((err) => {
 //Gets all reviews
 const getAll = cb => {
   let str = `SELECT * FROM reviews INNER JOIN activities WHERE reviews.act_id = activities.activity_id`;
-console.log('HELLOOOOO????')
+
+console.log('HELLOOOOO????', process.env.DB_NAME)
   con.query(str, (err, results) => {
     if (err) throw err;
     cb(results);
