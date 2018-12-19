@@ -14,7 +14,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:3004/${this.state.id}/reviewsNew`)
+    fetch(`http://reviewservice.jsxvmg3wq3.us-west-1.elasticbeanstalk.com/${this.state.id}/reviewsNew`)
       .then(response => {
         return response.json();
       })
@@ -24,15 +24,15 @@ export default class App extends React.Component {
         });
       });
       //call to TrailService for trailname
-      fetch(`http://localhost:3001/${this.state.id}/trailinfo`)
-      .then(response => {
-        return response.json();
-      })
-      .then((trailInfo) => {
-        this.setState({
-          trailname: trailInfo.data.attributes.trail_name
-        })
-      })
+      // fetch(`http://localhost:3001/${this.state.id}/trailinfo`)
+      // .then(response => {
+      //   return response.json();
+      // })
+      // .then((trailInfo) => {
+      //   this.setState({
+      //     trailname: trailInfo.data.attributes.trail_name
+      //   })
+      // })
   }
   render() {
     return (
