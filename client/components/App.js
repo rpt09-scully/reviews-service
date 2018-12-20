@@ -16,7 +16,7 @@ export default class App extends React.Component {
   componentDidMount() {
     const trailId = determineId();
     isProduction(trailId, process.env.NODE_ENV, SERVICE_HOSTS => {
-
+      //FETCHING FROM REVIEW SERVICE
       fetch(`${SERVICE_HOSTS.reviews}/${trailId}/reviewsNew`)
         .then(response => {
           return response.json();
@@ -26,6 +26,7 @@ export default class App extends React.Component {
             reviews: reviews
           });
         });
+        //FETCHING FROM TRAIL SERVICE
       fetch(`${SERVICE_HOSTS.trails}/${trailId}/trailinfo`)
         .then(response => {
           return response.json();

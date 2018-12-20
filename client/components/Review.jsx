@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import styles from '../../client/css/style.css'
+import styles from '../../client/css/style.css';
+import { isProduction } from '../utils.js';
 
 class Review extends React.Component {
   constructor(props) {
@@ -9,26 +10,29 @@ class Review extends React.Component {
       username: '',
       url: ''
     };
-
   }
 
   componentDidMount() {
-
-    fetch(
-      `http://localhost:3002/user/${this.props.info.data.attributes.user_id}`
-    )
-      .then(res => {
-        return res.json();
-      })
-      .then(profile => {
-        this.setState({
-          username:
-            profile.data.attributes.first_name +
-            ' ' +
-            profile.data.attributes.last_name,
-          url: profile.data.attributes.photo_url
+    //FETCHING FROM PROFILES SERVICE
+    isProduction(null, process.env.NODE_ENV, SERVICE_HOSTS => {
+      fetch(
+        `${SERVICE_HOSTS.profiles}/user/${
+          this.props.info.data.attributes.user_id
+        }`
+      )
+        .then(res => {
+          return res.json();
+        })
+        .then(profile => {
+          this.setState({
+            username:
+              profile.data.attributes.first_name +
+              ' ' +
+              profile.data.attributes.last_name,
+            url: profile.data.attributes.photo_url
+          });
         });
-      });
+    });
   }
 
   render() {
@@ -61,7 +65,7 @@ class Review extends React.Component {
                   <div className="review_rating boxs">
                     <h4>
                       <a href="#">{this.state.username}</a>
-                       on
+                      on
                       <a href="#">{this.props.trailname}</a>
                     </h4>
                     <span>
