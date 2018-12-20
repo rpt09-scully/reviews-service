@@ -2,21 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import ReviewList from './ReviewList.jsx';
-import isProduction from '../utils.js';
+import { isProduction, determineId } from '../utils.js';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: 1,
       reviews: [],
       trailname: ''
     };
   }
 
   componentDidMount() {
-    isProduction(process.env.NODE_ENV, SERVICE_HOSTS => {
-      fetch(`${SERVICE_HOSTS.reviews}/${this.state.id}/reviewsNew`)
+    const trailId = determineId();
+    isProduction(trailId, process.env.NODE_ENV, SERVICE_HOSTS => {
+
+      fetch(`${SERVICE_HOSTS.reviews}/${trailId}/reviewsNew`)
         .then(response => {
           return response.json();
         })
@@ -25,7 +26,7 @@ export default class App extends React.Component {
             reviews: reviews
           });
         });
-      fetch(`${SERVICE_HOSTS.trails}/${this.state.id}/trailinfo`)
+      fetch(`${SERVICE_HOSTS.trails}/${trailId}/trailinfo`)
         .then(response => {
           return response.json();
         })

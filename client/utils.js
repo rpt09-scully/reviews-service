@@ -1,4 +1,4 @@
-const isProduction = (nodeEnv, cb) => {
+const isProduction = (trailId, nodeEnv, cb) => {
   if (nodeEnv) {
     let obj = {
       reviews: 'http://reviewservice.jsxvmg3wq3.us-west-1.elasticbeanstalk.com',
@@ -16,7 +16,18 @@ const isProduction = (nodeEnv, cb) => {
   }
 };
 
+const determineId = () => {
+  if (window.location.pathname.length > 1) {
+    return parseInt(window.location.pathname.substring(1));
+  } else {
+    return 1;
+  }
+}
 
 
-export default isProduction;
+
+export {
+  isProduction,
+  determineId
+}
 
