@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import ReviewList from './ReviewList.jsx';
 
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -14,7 +15,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    console.log('heloooo RYan')
+
     fetch(`http://reviewservice.jsxvmg3wq3.us-west-1.elasticbeanstalk.com/${this.state.id}/reviewsNew`)
       .then(response => {
         return response.json();

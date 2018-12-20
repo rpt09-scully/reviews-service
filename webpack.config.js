@@ -2,7 +2,11 @@ var path = require('path');
 var SRC_DIR = path.join(__dirname, '/client');
 var DIST_DIR = path.join(__dirname, '/public');
 
-module.exports = {
+const webpack = require('webpack');
+const prod = process.argv.indexOf('production')
+
+
+const config = {
   entry: `./client/index.js`,
   output: {
     filename: 'app.js',
@@ -37,4 +41,20 @@ module.exports = {
   }
 };
 
+config.plugins = config.plugins||[];
+if (prod) {
+  config.plugins.push(new webpack.DefinePlugin({
+      'process.env': {
+          'NODE_ENV': `"production"`
+      }
+  }));
+} else {
+  config.plugins.push(new webpack.DefinePlugin({
+      'process.env': {
+          'NODE_ENV': `""`
+      }
+  }));
+}
+
+module.exports = config;
 
