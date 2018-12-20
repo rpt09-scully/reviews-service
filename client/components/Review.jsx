@@ -9,7 +9,6 @@ class Review extends React.Component {
       username: '',
       url: ''
     };
-    console.log(this.props.trailname)
   }
 
   componentDidMount() {
