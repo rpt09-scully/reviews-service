@@ -14,6 +14,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
+    console.log('heloooo RYan')
     fetch(`http://reviewservice.jsxvmg3wq3.us-west-1.elasticbeanstalk.com/${this.state.id}/reviewsNew`)
       .then(response => {
         return response.json();

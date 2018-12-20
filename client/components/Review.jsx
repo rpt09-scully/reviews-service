@@ -9,10 +9,11 @@ class Review extends React.Component {
       username: '',
       url: ''
     };
-    console.log(this.props.trailname)
+
   }
 
   componentDidMount() {
+
     fetch(
       `http://localhost:3002/user/${this.props.info.data.attributes.user_id}`
     )
