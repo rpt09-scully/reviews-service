@@ -1,5 +1,6 @@
 require('dotenv').config();
 
+console.log('IN CONFIG', process.env.NODE_ENV)
 if (process.env.NODE_ENV) {
   module.exports = {
     host: process.env.RDS_HOST,
