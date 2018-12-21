@@ -7,11 +7,24 @@ class Review extends React.Component {
     super(props);
     this.state = {
       username: '',
-      url: ''
+      url: '',
+      date: ''
     };
   }
 
   componentDidMount() {
+    const date = (this.props.info.data.attributes.date).replace(/\//g,'');
+    fetch(
+      `http://localhost:3004/${date}/timeago`
+    )
+      .then(res => {
+        return res.json();
+      })
+      .then(timeAgo => {
+        this.setState({
+          date: timeAgo
+        });
+      });
     fetch(
       `http://localhost:3002/user/${this.props.info.data.attributes.user_id}`
     )
@@ -71,7 +84,7 @@ class Review extends React.Component {
                     </span>
                   </div>
                   <div className="review_rating_days boxs">
-                    <p>8 days ago</p>
+                    <p>{this.state.date}</p>
                   </div>
                   <div className="review_from_user boxs">
                     <p>{this.props.info.data.attributes.body}</p>

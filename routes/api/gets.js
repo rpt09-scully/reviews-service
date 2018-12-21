@@ -23,10 +23,10 @@ router.get('/:trailId/trailStats', (req, res) => {
       'trailid': id,
       'totalReviews': results[1].toString(),
       'avgRating': results[0].toString()
-    }
+    };
     res.status(200).json(obj);
-  })
-})
+  });
+});
 
 
 
@@ -116,6 +116,12 @@ router.get('/:trailId/bottomReviews', (req, res) => {
       arr.push(db.jsonFormat(review.review_id, review));
     });
     res.status(200).json(arr);
+  });
+});
+
+router.get('/:date/timeago', (req, res) => {
+  db.dateFormat(req.params.date, (timeAgo) => {
+    res.status(200).json(timeAgo);
   });
 });
 
