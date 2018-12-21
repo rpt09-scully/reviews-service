@@ -120,9 +120,7 @@ router.get('/:trailId/bottomReviews', (req, res) => {
 });
 
 router.get('/:date/timeago', (req, res) => {
-  console.log(req.params)
   db.dateFormat(req.params.date, (timeAgo) => {
-    console.log(timeAgo)
     res.status(200).json(timeAgo);
   })
 })

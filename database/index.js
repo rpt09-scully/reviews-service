@@ -101,11 +101,9 @@ const jsonFormat = (id, review) => {
 }
 
 const dateFormat = (date, cb) => {
-  console.log(date)
   let arr = '1,2,3,4,5,6,7,8,9'.split(',');
   let years = ['2016', '2017', '2018']
   if (date.length === 7 && arr.indexOf(date[0] > -1)) {
-    console.log('true')
     date = '0' + date;
     let timeAgo = moment(date, 'MM/DD/YYYY').fromNow();
     cb(timeAgo)

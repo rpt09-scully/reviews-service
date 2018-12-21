@@ -14,7 +14,6 @@ class Review extends React.Component {
 
   componentDidMount() {
     const date = (this.props.info.data.attributes.date).replace(/\//g,'');
-    console.log(date)
     fetch(
       `http://localhost:3004/${date}/timeago`
     )
