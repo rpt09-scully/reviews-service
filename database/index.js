@@ -1,5 +1,6 @@
 const mysql = require('mysql');
 const config = require('./config_example.js');
+const moment = require('moment');
 const con = mysql.createConnection(config);
 
 
@@ -100,9 +101,32 @@ const jsonFormat = (id, review) => {
 }
 
 const dateFormat = (date, cb) => {
-  let timeAgo = moment(date, 'MM/DD/YYYY').fromNow();
-  cb(timeAgo);
+  let arr = '1,2,3,4,5,6,7,8,9'.split(',');
+  let years = ['2016', '2017', '2018']
+  if (date.length === 7 && arr.indexOf(date[0] > -1)) {
+    console.log('true')
+    date = '0' + date;
+    let timeAgo = moment(date, 'MM/DD/YYYY').fromNow();
+    cb(timeAgo)
+  } else if (date.length !== 8 && years.indexOf(date.slice(date.length - 4)) > -1) {
+    date = '0' + date[0] + '0' + date[1] + date.slice(date.length - 4)
+
+    let timeAgo = moment(date, 'MM/DD/YYYY').fromNow();
+    cb(timeAgo)
+  } else {
+    let timeAgo = moment(date, 'MM/DD/YYYY').fromNow();
+    cb(timeAgo)
+  }
 };
+
+
+
+
+
+dateFormat('122016', (time) => {
+  console.log(time)
+})
+
 
 module.exports = {
   getAll,
