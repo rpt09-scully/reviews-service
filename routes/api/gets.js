@@ -119,5 +119,15 @@ router.get('/:trailId/bottomReviews', (req, res) => {
 });
 
 
+//@route  GET '/:date/timeago'
+//@example http:localhost:3004/02111016/timeago
+//@desc   using dateFormat function to convert date to a string
+//@eg: 02111016 would be '2 years ago'
+router.get('/:date/timeago', (req, res) => {
+  db.dateFormat(req.params.date, (timeAgo) => {
+    res.status(200).json(timeAgo);
+  });
+});
+
 
 module.exports = router;
