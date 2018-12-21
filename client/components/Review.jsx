@@ -7,11 +7,25 @@ class Review extends React.Component {
     super(props);
     this.state = {
       username: '',
-      url: ''
+      url: '',
+      date: ''
     };
   }
 
   componentDidMount() {
+    const date = (this.props.info.data.attributes.date).replace(/\//g,'');
+    console.log(date)
+    fetch(
+      `http://localhost:3004/${date}/timeago`
+    )
+      .then(res => {
+        return res.json();
+      })
+      .then(timeAgo => {
+        this.setState({
+          date: timeAgo
+        });
+      });
     fetch(
       `http://localhost:3002/user/${this.props.info.data.attributes.user_id}`
     )

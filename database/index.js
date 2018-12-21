@@ -99,7 +99,10 @@ const jsonFormat = (id, review) => {
     return obj;
 }
 
-
+const dateFormat = (date, cb) => {
+  let timeAgo = moment(date, 'MM/DD/YYYY').fromNow();
+  cb(timeAgo);
+};
 
 module.exports = {
   getAll,
@@ -108,5 +111,6 @@ module.exports = {
   dateSort,
   ratedSort,
   jsonFormat,
-  getStats
+  getStats,
+  dateFormat
 };

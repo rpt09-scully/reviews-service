@@ -119,4 +119,8 @@ router.get('/:trailId/bottomReviews', (req, res) => {
   });
 });
 
+router.get('/:date/timeago', (req, res) => {
+  console.log(req.params)
+})
+
 module.exports = router;
