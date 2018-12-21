@@ -85,7 +85,7 @@ class Review extends React.Component {
                     </span>
                   </div>
                   <div className="review_rating_days boxs">
-                    <p>8 days ago</p>
+                    <p>{this.state.date}</p>
                   </div>
                   <div className="review_from_user boxs">
                     <p>{this.props.info.data.attributes.body}</p>
