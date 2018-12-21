@@ -12,7 +12,7 @@ app.use(cors());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-//servernpm r
+
 // app.use(express.static(__dirname + '/../react-client/dist'));
 app.use(express.static('public'));
 
