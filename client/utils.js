@@ -3,7 +3,7 @@ const isProduction = (trailId, nodeEnv, cb) => {
     let obj = {
       reviews: 'http://reviewservice.jsxvmg3wq3.us-west-1.elasticbeanstalk.com',
       trails: 'http://trail-env.8jhbbn2nrv.us-west-2.elasticbeanstalk.com',
-      profiles: 'http://localhost:3002/CHANGETOPRODUCTIONROUTE'
+      profiles: 'http://profile-service.be6c6ztrma.us-west-2.elasticbeanstalk.com'
     };
     cb(obj);
   } else {
