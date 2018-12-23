@@ -54,7 +54,7 @@ class Review extends React.Component {
       <div>
         <title>Review </title>
         <div className={`${styles.review_box_main} ${styles.boxs}`}>
-          <div className="container">
+          <div className={styles.container}>
           <div className={`${styles.review_box_main_inner} ${styles.boxs}`}>
             {/* <div className="review_box_main_inner boxs"> */}
               {/*  first box start */}
