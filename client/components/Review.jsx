@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import styles from '../../client/css/style.css';
 import { isProduction } from '../utils.js';
+import Star from './Stars.jsx'
 
 class Review extends React.Component {
   constructor(props) {
@@ -10,12 +11,12 @@ class Review extends React.Component {
       username: '',
       url: '',
       date: '',
-      activity: this.props.info.data.attributes.activity
+      activity: this.props.info.data.attributes.activity,
+      stars: this.props.info.data.attributes.rating
     };
   }
 
   componentDidMount() {
-
     //FETCHING FROM PROFILES SERVICE
     isProduction(null, process.env.NODE_ENV, SERVICE_HOSTS => {
     const date = (this.props.info.data.attributes.date).replace(/\//g,'');
@@ -76,11 +77,7 @@ class Review extends React.Component {
                       <a href="#">{this.props.trailname}</a>
                     </h4>
                     <span>
-                      <i className="fa fa-star" aria-hidden="false" />
-                      <i className="fa fa-star" aria-hidden="true" />
-                      <i className="fa fa-star" aria-hidden="true" />
-                      <i className="fa fa-star" aria-hidden="true" />
-                      <i className="fa fa-star" aria-hidden="true" />
+                    <Star stars={this.state.stars}/>
                     </span>
                     <div className={`${styles.hiking_anchorbox} ${styles.boxs}`}>
                           <span>{this.state.activity}</span>
