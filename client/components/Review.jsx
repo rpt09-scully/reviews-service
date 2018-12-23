@@ -73,7 +73,7 @@ class Review extends React.Component {
                 <div className={`${styles.review_rating} ${styles.boxs}`}>
                     <h4>
                       <a href="#">{this.state.username}</a>
-                      on
+                      <a> on </a>
                       <a href="#">{this.props.trailname}</a>
                     </h4>
                     <span>
