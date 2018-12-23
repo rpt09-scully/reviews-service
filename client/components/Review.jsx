@@ -9,7 +9,8 @@ class Review extends React.Component {
     this.state = {
       username: '',
       url: '',
-      date: ''
+      date: '',
+      activity: this.props.info.data.attributes.activity
     };
   }
 
@@ -75,12 +76,15 @@ class Review extends React.Component {
                       <a href="#">{this.props.trailname}</a>
                     </h4>
                     <span>
-                      <i className="fa fa-star" aria-hidden="true" />
+                      <i className="fa fa-star" aria-hidden="false" />
                       <i className="fa fa-star" aria-hidden="true" />
                       <i className="fa fa-star" aria-hidden="true" />
                       <i className="fa fa-star" aria-hidden="true" />
                       <i className="fa fa-star" aria-hidden="true" />
                     </span>
+                    <div className={`${styles.hiking_anchorbox} ${styles.boxs}`}>
+                          <span>{this.state.activity}</span>
+                      </div>
                   </div>
                   <div className={`${styles.review_rating_days} ${styles.boxs}`}>
                     <p>{this.state.date}</p>
