@@ -53,30 +53,22 @@ class Review extends React.Component {
     return (
       <div>
         <title>Review </title>
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="css/font-awesome.min.css"
-        />
-        <link href="css/css.css" rel="stylesheet" />
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
-        <link rel="stylesheet" type="text/css" href="css/media.css" />
-        <div className="review_box_main boxs">
+        <div className={`${styles.review_box_main} ${styles.boxs}`}>
           <div className="container">
-            <div className="review_box_main_inner boxs">
+          <div className={`${styles.review_box_main_inner} ${styles.boxs}`}>
+            {/* <div className="review_box_main_inner boxs"> */}
               {/*  first box start */}
-              <div className="review_box_main_inner1 boxs">
-                <div className="review_box_main_inner1_left boxs">
-                  <div className="img_boxreview">
+              <div className={`${styles.review_box_main_inner1} ${styles.boxs}`}>
+              <div className={`${styles.review_box_main_inner1_left} ${styles.boxs}`}>
+                  <div className={styles.img_boxreview}>
                     <a href="#">
                       <img src={this.state.url} alt="review_img1" />
                     </a>
                   </div>
-                  <span className="position_img_badge" />
+                  <span className={styles.position_img_badge} />
                 </div>
-                <div className="review_box_main_inner1_right boxs">
-                  <div className="review_rating boxs">
+                <div className={`${styles.review_box_main_inner1_right} ${styles.boxs}`}>
+                <div className={`${styles.review_rating} ${styles.boxs}`}>
                     <h4>
                       <a href="#">{this.state.username}</a>
                       on
@@ -90,10 +82,10 @@ class Review extends React.Component {
                       <i className="fa fa-star" aria-hidden="true" />
                     </span>
                   </div>
-                  <div className="review_rating_days boxs">
+                  <div className={`${styles.review_rating_days} ${styles.boxs}`}>
                     <p>{this.state.date}</p>
                   </div>
-                  <div className="review_from_user boxs">
+                  <div className={`${styles.review_from_user} ${styles.boxs}`}>
                     <p>{this.props.info.data.attributes.body}</p>
                   </div>
                 </div>
