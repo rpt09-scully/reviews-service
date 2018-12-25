@@ -2,15 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import ReviewList from './ReviewList.jsx';
-import { isProduction, determineId } from '../utils.js';
+import { isProduction, determineId, determineEndpoint } from '../utils.js';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       reviews: [],
-      trailname: ''
+      trailname: '',
+      list: 'newest',
+      url: '',
+      trailId: ''
     };
+    // this.oldest = this.oldest.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -23,10 +28,13 @@ export default class App extends React.Component {
         })
         .then(reviews => {
           this.setState({
-            reviews: reviews
+            reviews: reviews,
+            trailId: trailId,
+            list: 'newest',
+            url: SERVICE_HOSTS
           });
         });
-        //FETCHING FROM TRAIL SERVICE
+      //FETCHING FROM TRAIL SERVICE
       fetch(`${SERVICE_HOSTS.trails}/${trailId}/trailinfo`)
         .then(response => {
           return response.json();
@@ -38,12 +46,28 @@ export default class App extends React.Component {
         });
     });
   }
+
+  handleChange(e) {
+    determineEndpoint(e, endpoint => {
+      fetch(`${this.state.url.reviews}/${this.state.trailId}/${endpoint}`)
+        .then(response => {
+          return response.json();
+        })
+        .then(reviews => {
+          this.setState({
+            reviews: reviews
+          });
+        });
+    });
+  };
+
   render() {
     return (
       <div>
         <ReviewList
           reviews={this.state.reviews}
           trailname={this.state.trailname}
+          onChange={this.handleChange}
         />
       </div>
     );

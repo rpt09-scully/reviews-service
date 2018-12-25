@@ -11,12 +11,15 @@ class Review extends React.Component {
       username: '',
       url: '',
       date: '',
-      activity: this.props.info.data.attributes.activity,
-      stars: this.props.info.data.attributes.rating
+      // activity: this.props.info.data.attributes.activity,
+      // stars: this.props.info.data.attributes.rating
     };
+
+
   }
 
   componentDidMount() {
+    console.log('in Review', this.props.info)
     //FETCHING FROM PROFILES SERVICE
     isProduction(null, process.env.NODE_ENV, SERVICE_HOSTS => {
     const date = (this.props.info.data.attributes.date).replace(/\//g,'');
@@ -51,7 +54,10 @@ class Review extends React.Component {
     });
   }
 
+
+
   render() {
+    console.log('IN RENDER OF REVIEW', this.props.info, this.props.info.data.attributes.rating)
     return (
       <div>
         <title>Review </title>
@@ -77,10 +83,10 @@ class Review extends React.Component {
                       <a href="#">{this.props.trailname}</a>
                     </h4>
                     <span>
-                    <Star stars={this.state.stars}/>
+                    <Star stars={this.props.info.data.attributes.rating}/>
                     </span>
                     <div className={`${styles.hiking_anchorbox} ${styles.boxs}`}>
-                          <span>{this.state.activity}</span>
+                          <span>{this.props.info.data.attributes.activity}</span>
                       </div>
                   </div>
                   <div className={`${styles.review_rating_days} ${styles.boxs}`}>

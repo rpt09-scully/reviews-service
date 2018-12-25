@@ -24,5 +24,17 @@ const determineId = () => {
   }
 };
 
-export { isProduction, determineId };
+const determineEndpoint = (e, cb) => {
+  if (e.target.innerHTML === 'Oldest First') {
+    cb('reviewsOld');
+  } else if (e.target.innerHTML === 'Lowest Rated') {
+    cb('bottomReviews');
+  } else if (e.target.innerHTML === 'Highest Rated') {
+    cb('topReviews');
+  } else if (e.target.innerHTML === 'Newest First') {
+    cb('reviewsNew');
+  }
+}
+
+export { isProduction, determineId, determineEndpoint };
 ;
