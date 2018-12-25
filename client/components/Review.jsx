@@ -16,7 +16,6 @@ class Review extends React.Component {
 
   componentDidMount() {
     //FETCHING FROM PROFILES SERVICE
-    console.log(this.props.info.data.attributes.date, 'DATE');
     isProduction(null, process.env.NODE_ENV, SERVICE_HOSTS => {
       const date = this.props.info.data.attributes.date.replace(/\//g, '');
       fetch(`${SERVICE_HOSTS.reviews}/${date}/timeago`)

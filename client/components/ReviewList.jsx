@@ -6,6 +6,7 @@ import { isProduction } from '../utils.js';
 
 
 const ReviewList = props => {
+  let prod = 1
   return (
     <div>
       <div>
@@ -17,9 +18,9 @@ const ReviewList = props => {
           <li onClick={(e) => props.onChange(e)}><a href='#'>Lowest Rated</a></li>
         </ul>
       </div>
-      {props.reviews.map((reviewInfo, i) => {
-
-        console.log('Map Me san', reviewInfo.data.attributes.date)
+      {props.reviews.map((reviewInfo, i, prod) => {
+        console.log(prod)
+        console.log('Map Me san', reviewInfo.data.attributes.date, prod)
         return <Review key={i} info={reviewInfo} trailname={props.trailname} />;
       })}
     </div>
