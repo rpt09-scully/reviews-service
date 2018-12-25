@@ -47,6 +47,42 @@ class Review extends React.Component {
     });
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.info.data.attributes.date !== this.props.info.data.attributes.date) {
+      isProduction(null, process.env.NODE_ENV, SERVICE_HOSTS => {
+        const date = this.props.info.data.attributes.date.replace(/\//g, '');
+        fetch(`${SERVICE_HOSTS.reviews}/${date}/timeago`)
+          .then(res => {
+            return res.json();
+          })
+          .then(timeAgo => {
+            this.setState({
+              date: timeAgo
+            });
+          });
+        fetch(
+          `${SERVICE_HOSTS.profiles}/user/${
+            this.props.info.data.attributes.user_id
+          }`
+        )
+          .then(res => {
+            return res.json();
+          })
+          .then(profile => {
+            this.setState({
+              username:
+                profile.data.attributes.first_name +
+                ' ' +
+                profile.data.attributes.last_name,
+              url: profile.data.attributes.photo_url
+            });
+          });
+      });
+    } else {
+      console.log('nah mang, I no diffy');
+    }
+  }
+
   render() {
     return (
       <div>
