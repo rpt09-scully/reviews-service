@@ -51,7 +51,6 @@ export default class App extends React.Component {
           return response.json();
         })
         .then(reviews => {
-          console.log(reviews)
           this.setState({
             reviews: reviews
           });
