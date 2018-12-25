@@ -3,7 +3,6 @@ const router = express.Router();
 const db = require('../../database');
 
 router.get('/reviews', (req, res) => {
-  console.log('Hellooo router!')
   let arr = [];
   db.getAll(reviews => {
     reviews.forEach(review => {
@@ -110,7 +109,7 @@ router.get('/:trailId/bottomReviews', (req, res) => {
   let trailId = req.params.trailId;
   let arr = [];
 
-  db.dateSort(trailId, 'ASC', sortedReviews => {
+  db.ratedSort(trailId, 'ASC', sortedReviews => {
     sortedReviews.forEach(review => {
       arr.push(db.jsonFormat(review.review_id, review));
     });

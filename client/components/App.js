@@ -10,11 +10,9 @@ export default class App extends React.Component {
     this.state = {
       reviews: [],
       trailname: '',
-      list: 'newest',
       url: '',
       trailId: ''
     };
-    // this.oldest = this.oldest.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -30,7 +28,6 @@ export default class App extends React.Component {
           this.setState({
             reviews: reviews,
             trailId: trailId,
-            list: 'newest',
             url: SERVICE_HOSTS
           });
         });
@@ -54,6 +51,7 @@ export default class App extends React.Component {
           return response.json();
         })
         .then(reviews => {
+          console.log(reviews)
           this.setState({
             reviews: reviews
           });
