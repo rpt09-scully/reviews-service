@@ -20,4 +20,5 @@ const Star = props => {
   );
 };
 
+
 export default Star;

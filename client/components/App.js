@@ -45,6 +45,7 @@ export default class App extends React.Component {
   }
 
   handleChange(e) {
+    e.preventDefault();
     determineEndpoint(e, endpoint => {
       fetch(`${this.state.url.reviews}/${this.state.trailId}/${endpoint}`)
         .then(response => {

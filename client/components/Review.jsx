@@ -45,7 +45,7 @@ class Review extends React.Component {
           });
         });
     });
-  }
+  };
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.info.data.attributes.date !== this.props.info.data.attributes.date) {
@@ -79,9 +79,9 @@ class Review extends React.Component {
           });
       });
     } else {
-      console.log('nah mang, I no diffy');
-    }
-  }
+
+    };
+  };
 
   render() {
     return (
@@ -140,7 +140,7 @@ class Review extends React.Component {
         </div>
       </div>
     );
-  }
-}
+  };
+};
 
 export default Review;
