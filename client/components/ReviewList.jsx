@@ -7,7 +7,8 @@ import { isProduction } from '../utils.js';
 
 const ReviewList = props => {
   return (
-    <div>
+     <div>
+      <h2>Share your experience to help other people learn more about this trail:</h2>
       <div className={`${styles.final}`}>
         <span className={`${styles.sort_list}`}>NineTrails Sort</span> | <span onClick={(e) => props.onChange(e)}className={`${styles.sort_list}`}><a href='#'>Newest First</a></span> | <span onClick={(e) => props.onChange(e)}className={`${styles.sort_list}`}><a href='#'>Oldest First</a></span> | <span onClick={(e) => props.onChange(e)}className={`${styles.sort_list}`}><a href='#'>Highest Rated</a></span> | <span onClick={(e) => props.onChange(e)}className={`${styles.sort_list}`}><a href='#'>Oldest First</a></span> | <span onClick={(e) => props.onChange(e)}className={`${styles.sort_list}`}><a href='#'>Lowest Rated</a></span>
       </div>

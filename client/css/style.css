@@ -214,5 +214,22 @@ color: none;
 a { color: #4bafe1;}
 
 .final{
+  margin-top: 20px;
   text-align: center
+}
+
+.container1 {
+  /* border-style: solid;
+  border-color: blue; */
+
+  flex-direction: column;
+  align-items: center;
+  font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #414141;
+}
+
+h2 {
+  font-size: 17px;
+  font-weight: normal;
+  text-align: center;
 }
