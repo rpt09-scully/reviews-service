@@ -8,14 +8,8 @@ import { isProduction } from '../utils.js';
 const ReviewList = props => {
   return (
     <div>
-      <div>
-        <ul className={`${styles.sort_list} ${styles.li}`}>
-          <li>9Trails Sort</li>
-          <li onClick={(e) => props.onChange(e)}><a href='#'>Newest First</a></li>
-          <li onClick={(e) => props.onChange(e)}><a href='#'>Oldest First</a></li>
-          <li onClick={(e) => props.onChange(e)}><a href='#'>Highest Rated</a></li>
-          <li onClick={(e) => props.onChange(e)}><a href='#'>Lowest Rated</a></li>
-        </ul>
+      <div className={`${styles.final}`}>
+        <span className={`${styles.sort_list}`}>NineTrails Sort</span> | <span onClick={(e) => props.onChange(e)}className={`${styles.sort_list}`}><a href='#'>Newest First</a></span> | <span onClick={(e) => props.onChange(e)}className={`${styles.sort_list}`}><a href='#'>Oldest First</a></span> | <span onClick={(e) => props.onChange(e)}className={`${styles.sort_list}`}><a href='#'>Highest Rated</a></span> | <span onClick={(e) => props.onChange(e)}className={`${styles.sort_list}`}><a href='#'>Oldest First</a></span> | <span onClick={(e) => props.onChange(e)}className={`${styles.sort_list}`}><a href='#'>Lowest Rated</a></span>
       </div>
       {props.reviews.map((reviewInfo, i, prod) => {
         return <Review key={i} info={reviewInfo} trailname={props.trailname} />;

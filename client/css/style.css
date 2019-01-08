@@ -205,9 +205,14 @@ color: none;
   font-size: 12px;
 }
 
-.sort_list li {
-  float: left;
-  color: #219ad8;
-  font-size: 12pt;
-  margin-left: 60px;
+.sort_list{
+  float: center;
+  color: #4bafe1;
+  font-size: 9pt;
+  /* margin-left: 20px; */
+}
+a { color: #4bafe1;}
+
+.final{
+  text-align: center
 }
