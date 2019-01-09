@@ -7,7 +7,7 @@ import { isProduction } from '../utils.js';
 
 const ReviewList = props => {
   return (
-     <div>
+      <div className={styles.reviewsMain}>
       <h2>Share your experience to help other people learn more about this trail:</h2>
       <div className={`${styles.container}`}>
         <button className={`${styles.btn1}`}>Write Review</button>
