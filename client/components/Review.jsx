@@ -112,9 +112,9 @@ class Review extends React.Component {
                 >
                   <div className={`${styles.review_rating} ${styles.boxs}`}>
                     <h4>
-                      <a href="#">{this.state.username}</a>
-                      <a> on </a>
-                      <a href="#">{this.props.trailname}</a>
+                      <a className={`${styles.name}`} href="#">{this.state.username}</a>
+                      <a className={`${styles.name}`}> --- </a>
+                      <a className={`${styles.name}`} href="#">{this.props.trailname}</a>
                     </h4>
                     <span>
                       <Star stars={this.props.info.data.attributes.rating} />

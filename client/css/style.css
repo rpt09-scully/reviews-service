@@ -206,10 +206,10 @@ color: none;
 }
 a { color: #4bafe1;}
 
-/* .final{
+.final{
   margin-top: 20px;
   text-align: center
-} */
+}
 
 .container1 {
   /* border-style: solid;
@@ -227,22 +227,7 @@ h2 {
   text-align: center;
 }
 
-/* button{
-  background:  #4bafe1;
-  width: 101px;
-  height: 30px;
 
-  border-radius: 5px;
-  font-size: 12px;
-  color: white;
-  font-weight: bold;
-  outline: 0;
-  display:inline;
-  margin: 10px -50px;
-    position:relative;
-    top:50%;
-    left:50%;
-} */
 
 .container{
   width: 100%;
@@ -270,3 +255,6 @@ h2 {
   margin-right: 300px;
 }
 
+.name {
+  float: left;
+}
