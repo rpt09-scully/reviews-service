@@ -13,7 +13,7 @@ const isProduction = (trailId, nodeEnv, cb) => {
       profiles: 'http://localhost:3002'
     };
     cb(obj);
-  }
+  };
 };
 
 const determineId = () => {
@@ -21,7 +21,7 @@ const determineId = () => {
     return parseInt(window.location.pathname.substring(1));
   } else {
     return 1;
-  }
+  };
 };
 
 const determineEndpoint = (e, cb) => {
@@ -33,8 +33,8 @@ const determineEndpoint = (e, cb) => {
     cb('topReviews');
   } else if (e.target.innerHTML === 'Newest First') {
     cb('reviewsNew');
-  }
-}
+  };
+};
 
 export { isProduction, determineId, determineEndpoint };
 ;

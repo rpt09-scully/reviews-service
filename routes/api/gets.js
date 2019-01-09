@@ -25,8 +25,8 @@ router.get('/:trailId/trailStats', (req, res) => {
       'avgRating': results[0].toString()
     }
     res.status(200).json(obj);
-  })
-})
+  });
+});
 
 //@route  GET /:trailId/trailRank
 //@example http:localhost:3004/6/trailRank

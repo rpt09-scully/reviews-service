@@ -15,6 +15,6 @@ if (process.env.NODE_ENV) {
     password: process.env.DB_PASS,
     database: 'revService'
   };
-}
+};
 
 //Stashed

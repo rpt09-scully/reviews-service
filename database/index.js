@@ -50,9 +50,9 @@ const getStats = (trailId, cb) => {
       let avg2 = Math.ceil(avg1[Object.keys(avg1)[0]])
       let total2 = Math.ceil(total1[Object.keys(total1)[0]])
       cb([avg2, total2])
-    })
-  })
-}
+    });
+  });
+};
 
 
 
@@ -63,8 +63,8 @@ const getReview = (reviewId, cb) => {
   con.query(str, (err, review) => {
     if (err) throw err;
     cb(review[0])
-  })
-}
+  });
+};
 
 const dateSort = (trailId, sortBy, cb) => {
   let str = `SELECT reviews.review_id, reviews.user_id, reviews.trail_id, reviews.description, reviews.rating, reviews.date, activities.body \
@@ -74,8 +74,8 @@ const dateSort = (trailId, sortBy, cb) => {
   con.query(str, (err, reviews) => {
     if (err) throw err;
     cb(reviews)
-  })
-}
+  });
+};
 
 const ratedSort = (trailId, sortBy, cb) => {
   let str = `SELECT reviews.review_id, reviews.user_id, reviews.trail_id, reviews.description, reviews.rating, reviews.date, activities.body \
@@ -85,8 +85,8 @@ const ratedSort = (trailId, sortBy, cb) => {
   con.query(str, (err, reviews) => {
     if (err) throw err;
     cb(reviews)
-  })
-}
+  });
+};
 const jsonFormat = (id, review) => {
 
   let obj = {};
@@ -103,7 +103,7 @@ const jsonFormat = (id, review) => {
     obj.data.attributes.rating = review.rating;
     obj.data.attributes.date = review.date;
     return obj;
-}
+};
 
 const dateFormat = (date, cb) => {
   let arr = '1,2,3,4,5,6,7,8,9'.split(',');
@@ -123,7 +123,7 @@ const dateFormat = (date, cb) => {
   } else {
     let timeAgo = moment(date, 'MM/DD/YYYY').fromNow();
     cb(timeAgo);
-  }
+  };
 };
 
 

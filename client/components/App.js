@@ -42,7 +42,7 @@ export default class App extends React.Component {
           });
         });
     });
-  }
+  };
 
   handleChange(e) {
     e.preventDefault();
@@ -69,5 +69,5 @@ export default class App extends React.Component {
         />
       </div>
     );
-  }
-}
+  };
+};
