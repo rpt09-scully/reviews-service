@@ -125,13 +125,9 @@ class Review extends React.Component {
                       <span>{this.props.info.data.attributes.activity}</span>
                     </div>
                   </div>
-<<<<<<< HEAD
                   <div
                     className={`${styles.review_rating_days} ${styles.boxs}`}
                   >
-=======
-                  <div className="review_rating_days boxs">
->>>>>>> master
                     <p>{this.state.date}</p>
                   </div>
                   <div className={`${styles.review_from_user} ${styles.boxs}`}>
