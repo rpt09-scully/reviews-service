@@ -27,11 +27,6 @@ router.get('/:trailId/trailStats', (req, res) => {
     res.status(200).json(obj);
   });
 });
-<<<<<<< HEAD
-=======
-
-
->>>>>>> master
 
 //@route  GET /:trailId/trailRank
 //@example http:localhost:3004/6/trailRank
@@ -122,22 +117,15 @@ router.get('/:trailId/bottomReviews', (req, res) => {
   });
 });
 
-<<<<<<< HEAD
 
 //@route  GET '/:date/timeago'
 //@example http:localhost:3004/02111016/timeago
 //@desc   using dateFormat function to convert date to a string
 //@eg: 02111016 would be '2 years ago'
-=======
->>>>>>> master
 router.get('/:date/timeago', (req, res) => {
   db.dateFormat(req.params.date, (timeAgo) => {
     res.status(200).json(timeAgo);
   });
 });
 
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 module.exports = router;

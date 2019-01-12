@@ -16,10 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(express.static(__dirname + '/../react-client/dist'));
 app.use(express.static('public'));
 
-<<<<<<< HEAD
 // const localProd = (port === 3004) ? 'http://localhost:3004/app.js' : 'http://reviewservice.jsxvmg3wq3.us-west-1.elasticbeanstalk.com/app.js' ;
-=======
->>>>>>> master
 app.get('/:trailId(\\d+$)*?', function (req, res) {
   res.status(200).sendFile(path.resolve(__dirname + '/../public/index.html'));
 });
