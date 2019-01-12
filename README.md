@@ -10,6 +10,29 @@ Review service for Nine Trails Hack Reactor <abbr title="Front End Capstone">FEC
 - trails: https://github.com/rpt09-scully/trail-service
 - reviews [Current]
 
+## Table of Contents
+
+1. [Usage](#Usage)
+1. [Tech](#Tech/Frameworks used)
+1. [Development](#development)
+1. [Additional Resources](#additional-resources)
+
+
+## Usage
+### API Endpoints
++ GET `/:trailId/trailStats`
+  - Given a trailId, retrieves stats of trail according reviews given.
++ GET `/:trailId/reviewInfo`
+  - Given a trailId, retrieves review information
++ GET `/:trailId/reviewsNew`
+  - Given a trailId, retrieves all reviews sorted by most recent
++ GET `/:trailId/reviewsOld`
+  - Given a trailId, retrieves all reviews sorted by oldest
++ GET `/:trailId/topReviews`
+  - Given a trailId, retrieves all reviews sorted highest rated
++ GET `/:trailId/bottomReviews`
+  - Given a trailId, retrieves all reviews sorted by lowest rated
+
 ## Code Style
 
 [![Style Guide: Hack Reactor](https://img.shields.io/badge/Style%20Guide-Hack%20Reactor-blue.svg)](https://github.com/hackreactor-labs/eslint-config-hackreactor)
@@ -18,6 +41,7 @@ Review service for Nine Trails Hack Reactor <abbr title="Front End Capstone">FEC
 
 - [mySQL](https://dev.mysql.com/doc/refman/5.7/en/)
 - [Express](http://expressjs.com/)
+- [React](http://reactjs.org/)
 
 ## Code Example
 
@@ -39,8 +63,9 @@ Example JSON response to `http:localhost:3004/1/reviewInfo` for a trail with an 
   }
 }
 ```
+## Development
 
-## Installing Dependencies
+### Installing Dependencies
 
 ```sh
 # cd into directory
@@ -72,27 +97,3 @@ For Server and database:
 ```sh
 $ npm run test-server
 ```
-
-
-<!--
-# Inside `.env` place your SQL credentials (change if needed)
-# ````
-
-# DB_HOST=localhost
-# DB_USER=root
-# DB_PASS=
-
-# ````
-
-# To execute:
-
-# ```sh
-# $> npm run server-dev
-# ````
-
-# To execute current tests:
-
-# ```sh
-# Fill out credentials on lines 15 & 16 in server/specs/server-spec.js
-# $> npm run test-server
-# ``` -->

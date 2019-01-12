@@ -2,52 +2,72 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import ReviewList from './ReviewList.jsx';
+import { isProduction, determineId, determineEndpoint } from '../utils.js';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       reviews: [],
-      trailname:''
+      trailname: '',
+      url: '',
+      trailId: ''
     };
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
-    const determineId = () => {
-      if (window.location.pathname.length > 1) {
-        return parseInt(window.location.pathname.substring(1));
-      } else {
-        return 1;
-      }
-    }
     const trailId = determineId();
-    fetch(`http://localhost:3004/${trailId}/reviewsNew`)
-      .then(response => {
-        return response.json();
-      })
-      .then(reviews => {
-        this.setState({
-          reviews: reviews
-        });
-      });
-      //call to TrailService for trailname
-      fetch(`http://localhost:3001/${trailId}/trailinfo`)
-      .then(response => {
-        return response.json();
-      })
-      .then((trailInfo) => {
-        this.setState({
-          trailname: trailInfo.data.attributes.trail_name
+    isProduction(trailId, process.env.NODE_ENV, SERVICE_HOSTS => {
+      //FETCHING FROM REVIEW SERVICE
+      fetch(`${SERVICE_HOSTS.reviews}/${trailId}/reviewsNew`)
+        .then(response => {
+          return response.json();
         })
-      })
-  }
+        .then(reviews => {
+          this.setState({
+            reviews: reviews,
+            trailId: trailId,
+            url: SERVICE_HOSTS
+          });
+        });
+      //FETCHING FROM TRAIL SERVICE
+      fetch(`${SERVICE_HOSTS.trails}/${trailId}/trailinfo`)
+        .then(response => {
+          return response.json();
+        })
+        .then(trailInfo => {
+          this.setState({
+            trailname: trailInfo.data.attributes.trail_name
+          });
+        });
+    });
+  };
+
+  handleChange(e) {
+    e.preventDefault();
+    determineEndpoint(e, endpoint => {
+      fetch(`${this.state.url.reviews}/${this.state.trailId}/${endpoint}`)
+        .then(response => {
+          return response.json();
+        })
+        .then(reviews => {
+          this.setState({
+            reviews: reviews
+          });
+        });
+    });
+  };
+
   render() {
     return (
       <div>
-        <ReviewList reviews={this.state.reviews} trailname={this.state.trailname}/>
+        <ReviewList
+          reviews={this.state.reviews}
+          trailname={this.state.trailname}
+          onChange={this.handleChange}
+        />
       </div>
     );
-  }
-}
-
-
+  };
+};
