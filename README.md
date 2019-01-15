@@ -6,7 +6,9 @@ Review service for Nine Trails Hack Reactor <abbr title="Front End Capstone">FEC
     - [1.2.1. API endpoints](#121-api-endpoints)
     - [1.2.2. Individual Component Page](#122-individual-component-page)
     - [1.2.3. JSON Example](#123-json-example)
+- [1.3. Code Style](#13-code-style)
 - [1.4. Development Setup](#14-development-setup)
+  - [1.4.1. Tests](#141-tests)
 
 ## 1.1. Related Projects
 
@@ -16,13 +18,17 @@ Review service for Nine Trails Hack Reactor <abbr title="Front End Capstone">FEC
 - trails: https://github.com/rpt09-scully/trail-service
 - reviews [Current]
 
-## Usage
+
+
+## 1.2. Usage
+
 
 Reviews Service is a series of endpoints and 1 widget for 9 trails. The service contains a db for storing info about reviews.
 
 **reviews widget**
 
 ![upload](https://giant.gfycat.com/SkeletalOrnateKillerwhale.gif)
+
 
 ###  1.2.1 API Endpoints
 
@@ -83,14 +89,9 @@ This service uses the following dev stack:
   - DB: [mySQL](https://dev.mysql.com/doc/refman/5.7/en/)
   - Testing: [Mocha/Chai](https://www.chaijs.com/)
 
-
-
-### Installing Dependencies
-
 ```sh
-# cd into directory
-$> cd reviews-service
-# install dependencies
+# install npm dependencies
+$> cd /path/to/reviews-service
 $> npm install
 # setup .env file (for sql creds)
 $> touch .env
@@ -117,3 +118,5 @@ For Server and database:
 ```sh
 $ npm run test-server
 ```
+
+## 1.5. Log
