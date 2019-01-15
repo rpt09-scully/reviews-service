@@ -2,7 +2,13 @@
 
 Review service for Nine Trails Hack Reactor <abbr title="Front End Capstone">FEC</abbr> project. Supplies an API endpoint for review detail data at `/:reviewId/reviewInfo` on `port 3004`.
 
-## Related Projects
+- [1.2. Usage](#13-usage)
+    - [1.2.1. API endpoints](#121-api-endpoints)
+    - [1.2.2. Individual Component Page](#122-individual-component-page)
+    - [1.2.3. JSON Example](#123-json-example)
+- [1.4. Development Setup](#14-development-setup)
+
+## 1.1. Related Projects
 
 - paths: https://github.com/rpt09-scully/paths-service
 - profiles: https://github.com/rpt09-scully/profile-service
@@ -10,16 +16,18 @@ Review service for Nine Trails Hack Reactor <abbr title="Front End Capstone">FEC
 - trails: https://github.com/rpt09-scully/trail-service
 - reviews [Current]
 
-## Table of Contents
-
-1. [Usage](#Usage)
-1. [Tech](#Tech/Frameworks used)
-1. [Development](#development)
-1. [Additional Resources](#additional-resources)
-
-
 ## Usage
-### API Endpoints
+
+Reviews Service is a series of endpoints and 1 widget for 9 trails. The service contains a db for storing info about reviews.
+
+**reviews widget**
+
+![upload](https://gfycat.com/SkeletalOrnateKillerwhale)
+
+###  1.2.1 API Endpoints
+
+Below you can find all available endpoints.
+
 + GET `/:trailId/trailStats`
   - Given a trailId, retrieves stats of trail according reviews given.
 + GET `/:trailId/reviewInfo`
@@ -33,17 +41,13 @@ Review service for Nine Trails Hack Reactor <abbr title="Front End Capstone">FEC
 + GET `/:trailId/bottomReviews`
   - Given a trailId, retrieves all reviews sorted by lowest rated
 
-## Code Style
+### 1.2.2. Individual Component Page
 
-[![Style Guide: Hack Reactor](https://img.shields.io/badge/Style%20Guide-Hack%20Reactor-blue.svg)](https://github.com/hackreactor-labs/eslint-config-hackreactor)
+Going to `GET /` aka the root server page, will render the individual components.
 
-## Tech/Frameworks used
 
-- [mySQL](https://dev.mysql.com/doc/refman/5.7/en/)
-- [Express](http://expressjs.com/)
-- [React](http://reactjs.org/)
 
-## Code Example
+## 1.2.3 JSON Example
 
 Example JSON response to `http:localhost:3004/1/reviewInfo` for a trail with an ID of `1`:
 
@@ -63,7 +67,23 @@ Example JSON response to `http:localhost:3004/1/reviewInfo` for a trail with an 
   }
 }
 ```
-## Development
+
+## 1.3. Code Style
+
+[![Style Guide: Hack Reactor](https://img.shields.io/badge/Style%20Guide-Hack%20Reactor-blue.svg)](https://github.com/hackreactor-labs/eslint-config-hackreactor)
+
+
+## 1.4. Development Setup
+
+This service uses the following dev stack:
+
+  - Server: [Express](http://expressjs.com/)
+  - Deployment: [Elastic Beanstalk on AWS](https://aws.amazon.com/elasticbeanstalk/)
+  - Client:[React](http://reactjs.org/)
+  - DB: [mySQL](https://dev.mysql.com/doc/refman/5.7/en/)
+  - Testing: [Mocha/Chai](https://www.chaijs.com/)
+
+
 
 ### Installing Dependencies
 
