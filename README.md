@@ -22,7 +22,7 @@ Reviews Service is a series of endpoints and 1 widget for 9 trails. The service 
 
 **reviews widget**
 
-![upload](https://giant.gfycat.com/SkeletalOrnateKillerwhale.mp4)
+![upload](https://giant.gfycat.com/SkeletalOrnateKillerwhale.gif)
 
 ###  1.2.1 API Endpoints
 
