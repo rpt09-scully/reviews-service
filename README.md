@@ -121,6 +121,6 @@ $ npm run test-server
 
 **Passing Database Tests**
 
-![upload](https://imgur.com/BdtmJp6)
+[Imgur](https://i.imgur.com/BdtmJp6.png)
 
 ## 1.5. Log
