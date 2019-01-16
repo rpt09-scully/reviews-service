@@ -1,5 +1,5 @@
 const mysql = require('mysql');
-const config = require('../../database/config_example.js');
+const config = require('../../database/config.js');
 const request = require('request');
 const expect = require('chai').expect;
 
