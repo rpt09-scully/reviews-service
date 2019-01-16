@@ -113,10 +113,14 @@ $ npm run server-dev
 $ npm run react-dev
 ```
 
-## Tests
+## 1.4.1. Tests
 For Server and database:
 ```sh
 $ npm run test-server
 ```
+
+**Passing Database Tests**
+
+![upload](https://imgur.com/BdtmJp6)
 
 ## 1.5. Log
