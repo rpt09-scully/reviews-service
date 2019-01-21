@@ -26,6 +26,6 @@ dist/
 
 
 # Elastic Beanstalk Files
-.elasticbeanstalk/*
-!.elasticbeanstalk/*.cfg.yml
-!.elasticbeanstalk/*.global.yml
+.elasticbeanstalk/
+.ebextensions/
+.ebignore
