@@ -15,6 +15,7 @@
     "aws": "webpack --mode production && NODE_ENV=production node server/index.js"
   },
   "dependencies": {
+    "artillery": "^1.6.0-27",
     "body-parser": "^1.18.3",
     "chai": "^4.2.0",
     "cors": "^2.8.5",
