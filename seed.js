@@ -1,5 +1,6 @@
 const data = require('./quotes').quotes;
 
+
 //THIS FILE GENERATES REVIEWS WHICH WERE THEN STORED IN schema.sql
 const dateGen = () => {
   let dateStr = ''
@@ -32,7 +33,8 @@ const seedDB = (data) => {
 
 
 module.exports = {
-  seedDB
+  seedDB,
+  dateGen
 }
 
 

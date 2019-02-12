@@ -1,4 +1,4 @@
-module.exports.quotes = [
+module.exports = [
   "Beautiful place",
   "One of the most beautiful views.",
   "Incredible wild trail and one of the best parts of San Francisco.",
