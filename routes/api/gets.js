@@ -66,6 +66,7 @@ router.get('/:trailId/reviewsNew', (req, res) => {
 
   db.dateSort(trailId, 'DESC', sortedReviews => {
     sortedReviews.forEach(review => {
+
       arr.push(db.jsonFormat(review.review_id, review));
     });
     res.status(200).json(arr);
