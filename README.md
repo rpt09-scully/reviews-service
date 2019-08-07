@@ -2,7 +2,7 @@
 
 Review service for Nine Trails Hack Reactor <abbr title="Front End Capstone">FEC</abbr> project. Supplies an API endpoint for review detail data at `/:reviewId/reviewInfo` on `port 3004`.
 
-- [1.2. Usage](#13-usage)
+- [1.2. Usage](#12-usage)
     - [1.2.1. API endpoints](#121-api-endpoints)
     - [1.2.2. Individual Component Page](#122-individual-component-page)
     - [1.2.3. JSON Example](#123-json-example)
